@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 
-import mapof.roommates.features.basic_features as basic
-from mapof.core.glossary import MAIN_GLOBAL_FEATUERS
-from mapof.core.features_main import get_main_global_feature
-import numpy as np
 from itertools import combinations
+
+import numpy as np
+from mapof.core.features_main import get_main_global_feature
+from mapof.core.glossary import MAIN_GLOBAL_FEATUERS
 from mapof.core.inner_distances import l2
+
+import mapof.roommates.features.basic_features as basic
 
 registered_roommates_features = {
     'summed_rank_minimal_matching': basic.summed_rank_minimal_matching,

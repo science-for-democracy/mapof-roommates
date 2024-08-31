@@ -1,4 +1,4 @@
-# Mapel-marriages
+# Mapel-roommates
 This pacakge is a plugin for [mapel](https://pypi.org/project/mapel/) extending
 it with necessary files to draw maps of Stable Roommates intances.
 
