@@ -1,17 +1,18 @@
-# Mapel-roommates
-This pacakge is a plugin for [mapel](https://pypi.org/project/mapel/) extending
-it with necessary files to draw maps of Stable Roommates intances.
+# Mapof-roommates
+This pacakge is a plugin for [Mapof](https://pypi.org/project/mapof/) extending
+it with capabilities of drawing maps of instances of the Stable Roommates
+problem.
 
-For the most recent version of mapel, visit its [git
-repo](https://pypi.org/project/mapel/).
+For the most recent version of Mapof, visit its [git
+repo](https://pypi.org/project/mapof/).
 
 # Installation
-For a simple installation, type:
-`pip install mapel-roommates`
+For a simple installation, type
+`pip install mapof-roommates`
 in the console.
 
-For more complicated variants of installation, refer to the readme of mapel
-[here](https://github.com/szufix/mapel).
+For more complicated variants of installation, refer to the [readme of
+mapof](https://github.com/science-for-democracy/mapof).
 
 # Acknowledgments
 
