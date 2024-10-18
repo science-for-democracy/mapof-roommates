@@ -12,7 +12,7 @@ For a simple installation, type
 in the console.
 
 For more complicated variants of installation, refer to the [readme of
-mapof](https://github.com/science-for-democracy/mapof).
+Mapof](https://github.com/science-for-democracy/mapof).
 
 # Acknowledgments
 
