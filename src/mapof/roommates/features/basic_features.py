@@ -146,6 +146,9 @@ def rank_matching(instance,best,summed):
             m.addConstr(gp.quicksum(instance[j].index(i) * x[i, j] for j in [x for x in range(num_agents) if x != i])<=opt)
         m.setObjective(opt, GRB.MINIMIZE)
     m.optimize()
+    if m.status != GRB.Status.OPTIMAL:
+        raise RuntimeError("Could not optimize model during roommates feature "
+                           f"computation. Gurobi status {m.status} returned.")
     matching={}
     for i in range(num_agents):
         for j in range(num_agents):
