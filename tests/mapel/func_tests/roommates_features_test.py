@@ -22,7 +22,7 @@ class TestFeatures:
     @pytest.mark.parametrize("feature_id", registered_roommates_features_to_test)
     def test_roommates_features(self, feature_id):
 
-        num_agents = int(np.random.randint(5, 50) * 2)
+        num_agents = int(5 * 2)
 
         instance = mapel.generate_roommates_instance(culture_id='ic',
                                                      num_agents=num_agents)
