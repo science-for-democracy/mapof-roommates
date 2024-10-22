@@ -2,7 +2,7 @@ import numpy as np
 
 import pytest
 
-import mapof.roommates as mapel
+import mapof.roommates as roommates
 
 registered_roommates_cultures_to_test = {
     'ic',
@@ -29,7 +29,7 @@ class TestCultures:
     def test_roommates_cultures(self, culture_id):
         num_agents = int(np.random.randint(5, 50) * 2)
 
-        instance = mapel.generate_roommates_instance(culture_id=culture_id,
+        instance = roommates.generate_roommates_instance(culture_id=culture_id,
                                                      num_agents=num_agents)
 
         assert instance.num_agents == num_agents

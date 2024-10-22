@@ -1,14 +1,10 @@
-
 try:
     import gurobipy as gp
     from gurobipy import GRB
 except:
     pass
 
-try:
-    from mapof.roommates.matching.games import StableRoommates
-except:
-    pass
+from matching.games import StableRoommates
 
 from random import shuffle
 import statistics

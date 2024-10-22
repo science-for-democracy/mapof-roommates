@@ -1,10 +1,6 @@
-#!/usr/bin/env python
-
 from itertools import combinations
 
 import numpy as np
-from mapof.core.features_main import get_main_global_feature
-from mapof.core.glossary import MAIN_GLOBAL_FEATUERS
 from mapof.core.inner_distances import l2
 
 import mapof.roommates.features.basic_features as basic
@@ -30,13 +26,15 @@ def get_local_feature(feature_id):
 
 
 def get_global_feature(feature_id):
-    if feature_id in MAIN_GLOBAL_FEATUERS:
-        return get_main_global_feature(feature_id)
-
-    return {'monotonicity': monotonicity,
+    global_features = {'monotonicity': monotonicity,
             'distortion_from_all': distortion_from_all,
             'max_distortion_from_all': max_distortion_from_all,
-            }.get(feature_id)
+            }
+
+    if feature_id not in global_features.keys():
+        raise ValueError(f"Feature '{feature_id}' does not exist!")
+
+    return global_features.get(feature_id)
 
 # TMP FUNCS
 def monotonicity(experiment, instance) -> float:
