@@ -17,7 +17,3 @@ def generate_roommates_urn_votes(num_agents: int = None,
         urn_size += alpha
 
     return convert(votes)
-
-# # # # # # # # # # # # # # # #
-# LAST CLEANUP ON:  9.06.2023 #
-# # # # # # # # # # # # # # # #

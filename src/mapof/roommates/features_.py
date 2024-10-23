@@ -1,9 +1,8 @@
 from itertools import combinations
 
+import mapof.roommates.features.basic_features as basic
 import numpy as np
 from mapof.core.inner_distances import l2
-
-import mapof.roommates.features.basic_features as basic
 
 registered_roommates_features = {
     'summed_rank_minimal_matching': basic.summed_rank_minimal_matching,
@@ -76,7 +75,6 @@ def distortion_from_all(experiment, election):
             ratio = max(embedded_distance, true_distance) / min(embedded_distance, true_distance)
 
             values = np.append(values, ratio)
-    print(np.max(values))
     return np.mean(values)
 
 

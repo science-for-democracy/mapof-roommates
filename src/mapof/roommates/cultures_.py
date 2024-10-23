@@ -1,12 +1,10 @@
-from typing import Union
-
-import numpy as np
+import logging
 
 import mapof.roommates.cultures.euclidean as euclidean
 import mapof.roommates.cultures.impartial as impartial
 import mapof.roommates.cultures.mallows as mallows
 import mapof.roommates.cultures.urn as urn
-
+import numpy as np
 
 registered_roommates_culture = {
     'ic': impartial.generate_roommates_ic_votes,
@@ -28,17 +26,11 @@ registered_roommates_culture = {
 
 
 def generate_votes(culture_id: str = None, num_agents: int = None,
-                   params: dict = None) -> Union[list, np.ndarray]:
+                   params: dict = None) -> list | np.ndarray:
 
     if culture_id in registered_roommates_culture:
         return registered_roommates_culture.get(culture_id)(num_agents=num_agents, **params)
 
     else:
-        print("No such election culture_id!", culture_id)
+        logging.warning(f'No such culture id: {culture_id}')
         return []
-
-
-# # # # # # # # # # # # # # # #
-# LAST CLEANUP ON:  9.06.2023 #
-# # # # # # # # # # # # # # # #
-

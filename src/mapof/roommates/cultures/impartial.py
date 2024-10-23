@@ -1,5 +1,3 @@
-
-
 import numpy as np
 from mapof.roommates.cultures._utils import convert
 from mapof.core.utils import *

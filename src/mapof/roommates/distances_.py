@@ -1,13 +1,11 @@
-#!/usr/bin/env python
 import copy
 import csv
-from time import time
 import logging
 import os
+from time import time
 from typing import Callable
 
 import numpy as np
-
 from mapof.core.inner_distances import map_str_to_func
 from mapof.core.objects.Experiment import Experiment
 from mapof.roommates.distances import main_distances as mrd
