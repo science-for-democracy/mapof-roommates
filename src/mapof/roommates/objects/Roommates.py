@@ -32,7 +32,7 @@ class Roommates(Instance):
         if is_imported and experiment_id != 'virtual':
             try:
                 self.votes, self.num_agents, self.params, self.culture_id = \
-                    imports.import_real_instance(experiment_id)
+                    imports.import_real_instance(self)
                 self.alpha = self.params['alpha']
             except:
                 pass

@@ -108,14 +108,19 @@ class RoommatesExperiment(Experiment, ABC):
         instances = {}
 
         for family_id in self.families:
-            single = self.families[family_id].single
 
             ids = []
-            for j in range(self.families[family_id].size):
-                instance_id = get_instance_id(single, family_id, j)
+            if self.families[family_id].single:
+                instance_id = family_id
                 instance = Roommates(self.experiment_id, instance_id)
                 instances[instance_id] = instance
                 ids.append(str(instance_id))
+            else:
+                for j in range(self.families[family_id].size):
+                    instance_id = family_id + '_' + str(j)
+                    instance = Roommates(self.experiment_id, instance_id)
+                    instances[instance_id] = instance
+                    ids.append(str(instance_id))
 
             self.families[family_id].instance_ids = ids
 
@@ -433,7 +438,7 @@ class RoommatesExperiment(Experiment, ABC):
             feature = features.get_global_feature(feature_id)
             for instance_id in self.instances:
                 values = feature(self, self.instances[instance_id])
-                print(instance_id, values)
+
                 feature_dict['value'][instance_id] = values
                 feature_dict['time'][instance_id] = 0
         else:
@@ -468,8 +473,6 @@ class RoommatesExperiment(Experiment, ABC):
                             value = 'None'
                         else:
                             value = feature(instance)
-
-                        print(value)
 
                     total_time = time.time() - start
                     total_time /= num_iterations

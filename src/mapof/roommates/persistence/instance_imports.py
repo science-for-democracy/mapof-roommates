@@ -10,7 +10,7 @@ def import_real_instance(self, shift=False):
 
     file_name = f'{self.instance_id}.ri'
     path = os.path.join(os.getcwd(), "experiments", self.experiment_id, "instances", file_name)
-    print(path)
+
     with open(path, 'r') as my_file:
         params = 0
         first_line = my_file.readline()
