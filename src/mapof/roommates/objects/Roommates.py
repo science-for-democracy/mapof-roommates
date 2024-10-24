@@ -82,22 +82,6 @@ class Roommates(Instance):
         self.positionwise_vectors = vectors
         return vectors
 
-    def votes_to_pairwise_matrix(self) -> np.ndarray:
-        """ convert VOTES to pairwise MATRIX """
-        matrix = np.zeros([self.num_agents, self.num_agents])
-
-        for v in range(self.num_agents):
-            for c1 in range(self.num_agents - 1):
-                for c2 in range(c1 + 1, self.num_agents - 1):
-                    matrix[int(self.votes[v][c1])][int(self.votes[v][c2])] += 1
-
-        for i in range(self.num_agents):
-            for j in range(i + 1, self.num_agents):
-                matrix[i][j] /= float(self.num_agents)
-                matrix[j][i] = 1. - matrix[i][j]
-
-        return matrix
-
     def prepare_instance(self, is_exported=None, params: dict = None):
 
         if params is None:

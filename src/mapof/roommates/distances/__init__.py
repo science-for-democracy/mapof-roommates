@@ -16,11 +16,7 @@ from mapof.roommates.objects.Roommates import Roommates
 
 registered_roommates_distances = {
     'mutual_attraction': mrd.compute_retrospective_distance,
-
-    'positionwise': mrd.compute_positionwise_distance,  # unsupported distance
-    'pos_swap': mrd.compute_pos_swap_distance,  # unsupported distance
-    'swap_bf': mrd.compute_swap_bf_distance,  # unsupported distance
-    'pairwise': mrd.compute_pairwise_distance,  # unsupported distance
+    'positionwise': mrd.compute_positionwise_distance,
 }
 
 
