@@ -36,5 +36,3 @@ class TestOfflineRoommatesExperiment:
     def test_stable_sr(self):
         self.experiment.prepare_instances()
         self.experiment.compute_stable_sr()
-
-
