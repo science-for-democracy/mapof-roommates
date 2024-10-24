@@ -7,7 +7,7 @@ from collections import Counter
 def export_instance_to_a_file(experiment):
     """ Store votes in a file """
 
-    path_to_folder = os.path.join(os.getcwd(), "election", experiment.experiment_id, "instances")
+    path_to_folder = os.path.join(os.getcwd(), "experiments", experiment.experiment_id, "instances")
     make_folder_if_do_not_exist(path_to_folder)
     path_to_file = os.path.join(path_to_folder, f'{experiment.instance_id}.ri')
 

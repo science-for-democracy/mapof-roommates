@@ -6,8 +6,8 @@ from mapof.core.objects.Instance import Instance
 
 from mapof.roommates.cultures_ import generate_votes
 from mapof.roommates.features_ import get_local_feature
-from mapof.roommates.persistence.instance_exports import export_instance_to_a_file
-from mapof.roommates.persistence.instance_imports import import_real_instance
+import mapof.roommates.persistence.instance_exports as exports
+import mapof.roommates.persistence.instance_imports as imports
 
 
 class Roommates(Instance):
@@ -32,7 +32,7 @@ class Roommates(Instance):
         if is_imported and experiment_id != 'virtual':
             try:
                 self.votes, self.num_agents, self.params, self.culture_id = \
-                    import_real_instance(experiment_id)
+                    imports.import_real_instance(experiment_id)
                 self.alpha = self.params['alpha']
             except:
                 pass
@@ -124,7 +124,7 @@ class Roommates(Instance):
         self.params = params
 
         if is_exported:
-            export_instance_to_a_file(self)
+            exports.export_instance_to_a_file(self)
 
     def compute_feature(self, feature_id, feature_long_id=None, **kwargs):
         if feature_long_id is None:

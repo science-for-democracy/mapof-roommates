@@ -57,5 +57,4 @@ class TestFeatures:
     ]
     instance.votes = instance_votes
 
-
     instance.compute_feature(feature_id)

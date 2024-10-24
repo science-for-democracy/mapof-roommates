@@ -391,7 +391,7 @@ class RoommatesExperiment(Experiment, ABC):
 
         if self.is_exported:
 
-            path_to_folder = os.path.join(os.getcwd(), "election", self.experiment_id,
+            path_to_folder = os.path.join(os.getcwd(), "experiments", self.experiment_id,
                                           "features")
             make_folder_if_do_not_exist(path_to_folder)
             path_to_file = os.path.join(path_to_folder, f'stable_sr.csv')
