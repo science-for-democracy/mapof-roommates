@@ -11,12 +11,16 @@ from mapof.core.inner_distances import map_str_to_func
 from mapof.core.objects.Experiment import Experiment
 
 from mapof.roommates.distances import main_distances as mrd
+from mapof.roommates.distances import spearman as spr
 from mapof.roommates.objects.Roommates import Roommates
 
 
 registered_roommates_distances = {
     'mutual_attraction': mrd.compute_retrospective_distance,
     'positionwise': mrd.compute_positionwise_distance,
+
+    # 'spearman_distance': spr.spearman_distance,
+    # 'spearman_distance_linear': spr.spearman_distance_linear,
 }
 
 

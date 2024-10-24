@@ -5,7 +5,10 @@ import mapof.roommates as mapel
 
 registered_roommates_distances_to_test = {
     'l1-mutual_attraction',
-    'l1-positionwise'
+    'l1-positionwise',
+
+    # 'spearman_distance',
+    # 'spearman_distance_linear'
 }
 
 
