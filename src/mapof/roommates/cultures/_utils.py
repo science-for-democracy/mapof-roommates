@@ -1,4 +1,3 @@
-
 def convert(votes):
     new_votes = []
     for j in range(len(votes)):

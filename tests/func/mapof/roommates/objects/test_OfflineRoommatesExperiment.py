@@ -33,5 +33,8 @@ class TestOfflineRoommatesExperiment:
         feature_id = 'mutuality'
         self.experiment.compute_feature(feature_id=feature_id)
 
+    def test_stable_sr(self):
+        self.experiment.prepare_instances()
+        self.experiment.compute_stable_sr()
 
 

@@ -4,8 +4,8 @@ import copy
 import numpy as np
 from mapof.core.objects.Instance import Instance
 
-from mapof.roommates.cultures_ import generate_votes
-from mapof.roommates.features_ import get_local_feature
+from mapof.roommates.cultures import generate_votes
+from mapof.roommates.features import get_local_feature
 import mapof.roommates.persistence.instance_exports as exports
 import mapof.roommates.persistence.instance_imports as imports
 

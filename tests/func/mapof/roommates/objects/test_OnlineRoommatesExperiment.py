@@ -68,6 +68,10 @@ class TestOnlineRoommatesExperiment:
         self.experiment.embed_2d(embedding_id='fr')
         self.experiment.print_map_2d(show=False)
 
+    def test_stable_sr(self):
+        self.experiment.add_instance()
+        self.experiment.compute_stable_sr()
+
     # def test_compute_feature(self):
     #     self.add_families()
     #     self.experiment.compute_distances(distance_id='l1-mutual_attraction')

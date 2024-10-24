@@ -1,7 +1,7 @@
 
 from .objects.RoommatesExperiment import RoommatesExperiment
 from .objects.Roommates import Roommates
-from . import cultures_ as rom
+from . import cultures as rom
 from .distances import get_distance
 
 

@@ -14,7 +14,7 @@ from mapof.roommates.objects.RoommatesFamily import RoommatesFamily
 from mapof.roommates.objects.Roommates import Roommates
 import mapof.roommates.distances as metr
 import mapof.roommates.features.basic_features as basic
-import mapof.roommates.features_ as features
+import mapof.roommates.features as features
 from mapof.core.utils import *
 from mapof.core.glossary import *
 from mapof.core.persistence.experiment_imports import get_values_from_csv_file
@@ -382,7 +382,6 @@ class RoommatesExperiment(Experiment, ABC):
 
     def compute_stable_sr(self):
         for instance_id in self.instances:
-            print(instance_id)
             if instance_id in ['roommates_test']:
                 self.matchings[instance_id] = 'None'
             else:
