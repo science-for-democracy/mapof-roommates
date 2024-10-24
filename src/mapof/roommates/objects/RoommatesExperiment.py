@@ -3,15 +3,16 @@ import ast
 import copy
 import csv
 import itertools
+from abc import ABC
 from multiprocessing import Process
 from time import sleep
 import time
 
+import mapof.core.persistence.experiment_exports as exports
 from mapof.core.objects.Experiment import Experiment
 from mapof.roommates.objects.RoommatesFamily import RoommatesFamily
 from mapof.roommates.objects.Roommates import Roommates
-import mapof.roommates.cultures_ as models_main
-import mapof.roommates.distances_ as metr
+import mapof.roommates.distances as metr
 import mapof.roommates.features.basic_features as basic
 import mapof.roommates.features_ as features
 from mapof.core.utils import *
@@ -33,7 +34,7 @@ except ImportError as error:
     print(error)
 
 
-class RoommatesExperiment(Experiment):
+class RoommatesExperiment(Experiment, ABC):
     """Abstract set of elections."""
 
     def __init__(self, **kwargs):
@@ -46,10 +47,48 @@ class RoommatesExperiment(Experiment):
         except:
             pass
 
+    def add_culture(self, name, function):
+        pass
+
+    def add_distance(self, name, function):
+        pass
+
+    def add_feature(self, name, function):
+        pass
+
+    def add_folders_to_experiment(self) -> None:
+
+        dirs = ["experiments"]
+        for dir in dirs:
+            if not os.path.isdir(dir):
+                os.mkdir(os.path.join(os.getcwd(), dir))
+
+        if not os.path.isdir(os.path.join(os.getcwd(), "experiments", self.experiment_id)):
+            os.mkdir(os.path.join(os.getcwd(), "experiments", self.experiment_id))
+
+        list_of_folders = ['distances',
+                           'features',
+                           'coordinates',
+                           'instances']
+
+        for folder_name in list_of_folders:
+            if not os.path.isdir(os.path.join(os.getcwd(), "experiments",
+                                              self.experiment_id, folder_name)):
+                os.mkdir(os.path.join(os.getcwd(), "experiments",
+                                      self.experiment_id, folder_name))
+
+        path = os.path.join(os.getcwd(), "experiments", self.experiment_id, "map.csv")
+        if not os.path.exists(path):
+            with open(path, 'w') as file_csv:
+                file_csv.write(
+                    "size;num_agents;culture_id;params;color;alpha;"
+                    "family_id;label;marker\n")
+                file_csv.write("3;10;ic;{};black;1;ic;Impartial Culture;o\n")
+
     def import_matchings(self):
         matchings = {}
 
-        path = os.path.join(os.getcwd(), 'election', self.experiment_id, 'features',
+        path = os.path.join(os.getcwd(), 'experiments', self.experiment_id, 'features',
                             'stable_sr.csv')
         with open(path, 'r', newline='') as csv_file:
             reader = csv.DictReader(csv_file, delimiter=';')
@@ -82,23 +121,55 @@ class RoommatesExperiment(Experiment):
 
         return instances
 
-    def add_instance(self, culture_id="none", params=None, label=None,
-                     color="black", alpha=1., show=True, marker='x', starting_from=0, size=1,
-                     num_agents=None, instance_id=None):
+    def add_instance(self,
+                     culture_id="none",
+                     instance_id=None,
+                     params=None,
+                     label=None,
+                     color="black",
+                     alpha=1.,
+                     show=True,
+                     marker='x',
+                     size=1,
+                     num_agents=None
+                     ):
 
         if num_agents is None:
             num_agents = self.default_num_agents
 
-        return self.add_family(culture_id=culture_id, params=params, size=size, label=label,
-                               color=color, alpha=alpha, show=show, marker=marker,
-                               starting_from=starting_from, family_id=instance_id,
-                               num_agents=num_agents, single_instance=True)
+        return self.add_family(
+            culture_id=culture_id,
+            instance_id=instance_id,
+            params=params,
+            size=size,
+            label=label,
+            color=color,
+            alpha=alpha,
+            show=show,
+            marker=marker,
+            family_id=instance_id,
+            num_agents=num_agents,
+            single_instance=True
+        )
 
-    def add_family(self, culture_id: str = "none", params: dict = None, size: int = 1,
-                   label: str = None, color: str = "black", alpha: float = 1.,
-                   show: bool = True, marker: str = 'o', starting_from: int = 0,
-                   family_id: str = None, single_instance: bool = False,
-                   num_agents: int = None, path: dict = None):
+    def add_family(self,
+                   culture_id: str = "none",
+                   instance_id: str = None,
+                   params: dict = None,
+                   size: int = 1,
+                   label: str = None,
+                   color: str = "black",
+                   alpha: float = 1.,
+                   show: bool = True,
+                   marker: str = 'o',
+                   family_id: str = None,
+                   single_instance: bool = False,
+                   num_agents: int = None,
+                   path: dict = None
+                   ):
+
+        if instance_id is not None:
+            family_id = instance_id
 
         if num_agents is None:
             num_agents = self.default_num_agents
@@ -106,41 +177,62 @@ class RoommatesExperiment(Experiment):
         if self.families is None:
             self.families = {}
 
+        if params is None:
+            params = {}
+
+        if family_id is None:
+            family_id = culture_id + '_' + str(num_agents)
+
         if label is None:
             label = family_id
 
-        self.families[family_id] = RoommatesFamily(culture_id=culture_id, family_id=family_id,
-                                                   params=params, label=label, color=color,
-                                                   alpha=alpha, single=single_instance,
-                                                   show=show, size=size, marker=marker,
-                                                   starting_from=starting_from,
-                                                   num_agents=num_agents, path=path)
+        self.families[family_id] = RoommatesFamily(
+            culture_id=culture_id,
+            family_id=family_id,
+            params=params,
+            label=label,
+            color=color,
+            alpha=alpha,
+            single=single_instance,
+            show=show,
+            size=size, marker=marker,
+            num_agents=num_agents,
+            path=path)
 
         self.num_families = len(self.families)
         self.num_instances = sum([self.families[family_id].size for family_id in self.families])
 
-        models_main.prepare_instances(experiment=self,
-                                    culture_id=self.families[family_id].culture_id,
-                                    family_id=family_id,
-                                    params=copy.deepcopy(self.families[family_id].params))
+        new_instances = self.families[family_id].prepare_family(
+            is_exported=self.is_exported,
+            experiment_id=self.experiment_id
+        )
 
-    def compute_distances(self,
-                          distance_id: str = 'emd-positionwise',
-                          num_threads: int = 1,
-                          self_distances: bool = False) -> None:
+        for instance_id in new_instances:
+            self.instances[instance_id] = new_instances[instance_id]
+
+        self.families[family_id].instance_ids = list(new_instances.keys())
+
+        # if self.is_exported:
+        #     self.update_map_csv()  # To be implemented
+
+        return list(new_instances.keys())
+
+    def compute_distances(
+            self,
+            distance_id: str = 'l1-mutual_attraction',
+            num_processes: int = 1,
+            self_distances: bool = False
+    ) -> None:
+        """ Compute distances between instances (using processes) """
 
         self.distance_id = distance_id
-
-        if '-pairwise' in distance_id:
-            for instance in self.instances.values():
-                instance.votes_to_pairwise_matrix()
 
         matchings = {instance_id: {} for instance_id in self.instances}
         distances = {instance_id: {} for instance_id in self.instances}
         times = {instance_id: {} for instance_id in self.instances}
 
         ids = []
-        for i,instance_1 in enumerate(self.instances):
+        for i, instance_1 in enumerate(self.instances):
             for j, instance_2 in enumerate(self.instances):
                 if i == j:
                     if self_distances:
@@ -149,70 +241,53 @@ class RoommatesExperiment(Experiment):
                     ids.append((instance_1, instance_2))
 
         num_distances = len(ids)
-        processes =[]
 
-        for t in range(num_threads):
-            print(f'Starting thread: {t}')
-            sleep(0.1)
-            start = int(t * num_distances / num_threads)
-            stop = int((t + 1) * num_distances / num_threads)
-            thread_ids = ids[start:stop]
+        if self.experiment_id == 'virtual' or num_processes == 1:
+            metr.run_single_process(self, ids, distances, times, matchings)
 
-            process = Process(target=metr.run_single_thread, args=(self,
-                                                                   thread_ids,
-                                                                     distances,
-                                                                   times,
-                                                                   matchings,
-                                                                     t ))
+        else:
+            processes = []
+            for process_id in range(num_processes):
+                print(f'Starting process: {process_id}')
+                sleep(0.1)
+                start = int(process_id * num_distances / num_processes)
+                stop = int((process_id + 1) * num_distances / num_processes)
+                instances_ids = ids[start:stop]
 
-            process.start()
-            processes.append(process)
+                process = Process(target=metr.run_multiple_processes, args=(self,
+                                                                            instances_ids,
+                                                                            distances,
+                                                                            times,
+                                                                            matchings,
+                                                                            process_id))
+                process.start()
+                processes.append(process)
 
-        for process in processes:
-            process.join()
+            for process in processes:
+                process.join()
 
-        distances = {instance_id: {} for instance_id in self.instances}
-        times = {instance_id: {} for instance_id in self.instances}
-        for t in range(num_threads):
+            distances = {instance_id: {} for instance_id in self.instances}
+            times = {instance_id: {} for instance_id in self.instances}
+            for t in range(num_processes):
 
-            file_name = f'{distance_id}_p{t}.csv'
-            path = os.path.join(os.getcwd(), "election", self.experiment_id, "distances",
-                                file_name)
+                file_name = f'{distance_id}_p{t}.csv'
+                path = os.path.join(os.getcwd(), "experiments", self.experiment_id, "distances",
+                                    file_name)
 
-            with open(path, 'r', newline='') as csv_file:
-                reader = csv.DictReader(csv_file, delimiter=';')
+                with open(path, 'r', newline='') as csv_file:
+                    reader = csv.DictReader(csv_file, delimiter=';')
 
-                for row in reader:
-                    distances[row['instance_id_1']][row['instance_id_2']] = float(row['distance'])
-                    times[row['instance_id_1']][row['instance_id_2']] = float(row['time'])
+                    for row in reader:
+                        distances[row['instance_id_1']][row['instance_id_2']] = float(
+                            row['distance'])
+                        times[row['instance_id_1']][row['instance_id_2']] = float(row['time'])
 
         if self.is_exported:
-
-            path_to_folder = os.path.join(os.getcwd(), "election", self.experiment_id,
-                                          "distances")
-            make_folder_if_do_not_exist(path_to_folder)
-            path_to_file = os.path.join(path_to_folder, f'{distance_id}.csv')
-
-            with open(path_to_file, 'w', newline='') as csv_file:
-                writer = csv.writer(csv_file, delimiter=';')
-                writer.writerow(
-                    ["instance_id_1", "instance_id_2", "distance", "time"])
-
-                for election_1, election_2 in itertools.combinations(self.instances, 2):
-                    distance = str(distances[election_1][election_2])
-                    time = str(times[election_1][election_2])
-                    writer.writerow([election_1, election_2, distance, time])
+            exports.export_distances_to_file(self, distance_id, distances, times, ids)
 
         self.distances = distances
         self.times = times
         self.matchings = matchings
-
-        for instance_id_1 in self.distances:
-            for instance_id_2 in self.distances[instance_id_1]:
-                self.distances[instance_id_2][instance_id_1] = \
-                    self.distances[instance_id_1][instance_id_2]
-                self.times[instance_id_2][instance_id_1] = \
-                    self.times[instance_id_1][instance_id_2]
 
     def import_controllers(self):
         """ Import controllers from a file """
@@ -389,7 +464,8 @@ class RoommatesExperiment(Experiment):
                                           'summed_rank_maximal_matching',
                                           'minimal_rank_maximizing_matching',
                                           ] \
-                                and (self.matchings[instance_id] is None or self.matchings[instance_id] == 'None'):
+                                and (self.matchings[instance_id] is None or self.matchings[
+                            instance_id] == 'None'):
                             value = 'None'
                         else:
                             value = feature(instance)
@@ -421,13 +497,13 @@ class RoommatesExperiment(Experiment):
                     writer.writerow(["election_id", "value", 'time', 'std'])
                     for key in feature_dict['value']:
                         writer.writerow([key, feature_dict['value'][key],
-                                         round(feature_dict['time'][key],3),
-                                        round(feature_dict['std'][key],3)])
+                                         round(feature_dict['time'][key], 3),
+                                         round(feature_dict['std'][key], 3)])
                 else:
                     writer.writerow(["election_id", "value", 'time'])
                     for key in feature_dict['value']:
                         writer.writerow([key, feature_dict['value'][key],
-                                         round(feature_dict['time'][key],3)])
+                                         round(feature_dict['time'][key], 3)])
 
         self.features[feature_id] = feature_dict
         return feature_dict
@@ -456,6 +532,3 @@ class RoommatesExperiment(Experiment):
                 file_csv.write("10;20;roommates_ic;{};black;1;IC;IC;o;process_id\n")
         except:
             pass
-
-
-

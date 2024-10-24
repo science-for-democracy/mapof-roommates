@@ -2,7 +2,7 @@
 from .objects.RoommatesExperiment import RoommatesExperiment
 from .objects.Roommates import Roommates
 from . import cultures_ as rom
-from .distances_ import get_distance
+from .distances import get_distance
 
 
 def prepare_online_roommates_experiment(**kwargs):

@@ -43,32 +43,6 @@ class RoommatesFamily(Family):
 
         self.num_agents = num_agents
 
-    def _get_params_for_paths(self, j, extremes=False):
-        path = self.path
-
-        variable = path['variable']
-
-        if 'extremes' in path:
-            extremes = path['extremes']
-
-        params = {'variable': variable}
-        if extremes:
-            params[variable] = j / (self.size - 1)
-        elif not extremes:
-            params[variable] = (j + 1) / (self.size + 1)
-
-        if 'scale' in path:
-            params[variable] *= path['scale']
-
-        if 'start' in path:
-            params[variable] += path['start']
-        else:
-            path['start'] = 0.
-
-        if 'step' in path:
-            params[variable] = path['start'] + j * path['step']
-
-        return params, variable
 
     def prepare_family(self, experiment_id=None, is_exported=None):
 
@@ -79,14 +53,9 @@ class RoommatesFamily(Family):
 
             params = copy.deepcopy(self.params)
 
-            path = self.path
-            if path is not None and 'variable' in path:
-                new_params, variable = self._get_params_for_paths(j)
-                params = {**params, **new_params}
-
             if params is not None and 'normphi' in params:
                 params['phi'] = mallows.phi_from_normphi(self.num_agents,
-                                                        relphi=params['normphi'])
+                                                         relphi=params['normphi'])
 
             instance_id = get_instance_id(self.single, self.family_id, j)
 
