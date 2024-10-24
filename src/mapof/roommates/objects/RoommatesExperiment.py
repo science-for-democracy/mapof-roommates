@@ -1,23 +1,20 @@
 #!/usr/bin/env python
 import ast
-import copy
 import csv
-import itertools
-from abc import ABC
-from multiprocessing import Process
-from time import sleep
+import logging
 import time
+from abc import ABC
 
-import mapof.core.persistence.experiment_exports as exports
-from mapof.core.objects.Experiment import Experiment
-from mapof.roommates.objects.RoommatesFamily import RoommatesFamily
-from mapof.roommates.objects.Roommates import Roommates
-import mapof.roommates.distances as metr
-import mapof.roommates.features.basic_features as basic
-import mapof.roommates.features as features
-from mapof.core.utils import *
 from mapof.core.glossary import *
+from mapof.core.objects.Experiment import Experiment
 from mapof.core.persistence.experiment_imports import get_values_from_csv_file
+from mapof.core.utils import *
+
+import mapof.roommates.features as features
+import mapof.roommates.features.basic_features as basic
+from mapof.roommates.distances import get_distance
+from mapof.roommates.objects.Roommates import Roommates
+from mapof.roommates.objects.RoommatesFamily import RoommatesFamily
 
 try:
     from sklearn.manifold import MDS
@@ -222,77 +219,13 @@ class RoommatesExperiment(Experiment, ABC):
 
         return list(new_instances.keys())
 
-    def compute_distances(
-            self,
-            distance_id: str = 'l1-mutual_attraction',
-            num_processes: int = 1,
-            self_distances: bool = False
-    ) -> None:
-        """ Compute distances between instances (using processes) """
-
-        self.distance_id = distance_id
-
-        matchings = {instance_id: {} for instance_id in self.instances}
-        distances = {instance_id: {} for instance_id in self.instances}
-        times = {instance_id: {} for instance_id in self.instances}
-
-        ids = []
-        for i, instance_1 in enumerate(self.instances):
-            for j, instance_2 in enumerate(self.instances):
-                if i == j:
-                    if self_distances:
-                        ids.append((instance_1, instance_2))
-                elif i < j:
-                    ids.append((instance_1, instance_2))
-
-        num_distances = len(ids)
-
-        if self.experiment_id == 'virtual' or num_processes == 1:
-            metr.run_single_process(self, ids, distances, times, matchings)
-
-        else:
-            processes = []
-            for process_id in range(num_processes):
-                print(f'Starting process: {process_id}')
-                sleep(0.1)
-                start = int(process_id * num_distances / num_processes)
-                stop = int((process_id + 1) * num_distances / num_processes)
-                instances_ids = ids[start:stop]
-
-                process = Process(target=metr.run_multiple_processes, args=(self,
-                                                                            instances_ids,
-                                                                            distances,
-                                                                            times,
-                                                                            matchings,
-                                                                            process_id))
-                process.start()
-                processes.append(process)
-
-            for process in processes:
-                process.join()
-
-            distances = {instance_id: {} for instance_id in self.instances}
-            times = {instance_id: {} for instance_id in self.instances}
-            for t in range(num_processes):
-
-                file_name = f'{distance_id}_p{t}.csv'
-                path = os.path.join(os.getcwd(), "experiments", self.experiment_id, "distances",
-                                    file_name)
-
-                with open(path, 'r', newline='') as csv_file:
-                    reader = csv.DictReader(csv_file, delimiter=';')
-
-                    for row in reader:
-                        distances[row['instance_id_1']][row['instance_id_2']] = float(
-                            row['distance'])
-                        times[row['instance_id_1']][row['instance_id_2']] = float(row['time'])
-
-        if self.is_exported:
-            exports.export_distances_to_file(self, distance_id, distances, times, ids)
-
-        self.distances = distances
-        self.times = times
-        self.matchings = matchings
+    def get_distance(self,
+                     election_1: Roommates,
+                     election_2: Roommates,
+                     distance_id: str = None,
+                     **kwargs
+                     ) -> float or (float, list):
+        return get_distance(election_1, election_2, distance_id)
 
     def import_controllers(self):
         """ Import controllers from a file """
