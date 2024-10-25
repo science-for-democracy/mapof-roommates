@@ -1,2 +1,2 @@
-mapof==0.1.0.dev3
+mapof==0.1.0dev4
 matching>=1.4.3

@@ -2,7 +2,7 @@ from itertools import combinations
 
 import mapof.roommates.features.basic_features as basic
 import numpy as np
-from mapof.core.inner_distances import l2
+from mapof.core.distances import l2
 
 registered_roommates_features = {
     'summed_rank_minimal_matching': basic.summed_rank_minimal_matching,
