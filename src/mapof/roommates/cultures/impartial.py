@@ -1,58 +1,122 @@
-import numpy as np
-from mapof.roommates.cultures._utils import convert
-from mapof.core.utils import *
 import logging
 
+import numpy as np
+from mapof.core.utils import *
 
-def generate_roommates_ic_votes(num_agents: int = None, **kwargs):
-    """ Impartial Culture """
+from mapof.roommates.cultures._utils import convert
 
+
+def generate_roommates_ic_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+    """
+    Generates a list of votes based on the Impartial Culture model.
+
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        **kwargs
+            Additional parameters for customization.
+
+    Returns
+    -------
+        list[list[int]]
+            A list of votes.
+    """
     votes = [list(np.random.permutation(num_agents)) for _ in range(num_agents)]
-
     return convert(votes)
 
 
-def generate_roommates_group_ic_votes(num_agents: int = None,
-                                      proportion=0.5,
-                                      **kwargs):
-    """ Impartial Culture with two groups """
+def generate_roommates_group_ic_votes(
+        num_agents: int = None,
+        proportion=0.5,
+        **kwargs
+) -> list[list[int]]:
+    """
+    Generates a list of votes based on the Group Impartial Culture model with two groups.
 
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        proportion : float, optional
+            Proportion of agents in the first group. Default is 0.5.
+        **kwargs
+            Additional parameters for customization.
+
+    Returns
+    -------
+        list[list[int]]
+            A list of votes.
+    """
     size_1 = int(proportion * num_agents)
     size_2 = int(num_agents - size_1)
-
     votes_1 = [list(np.random.permutation(size_1)) +
                list(np.random.permutation([j for j in range(size_1, num_agents)]))
                for _ in range(size_1)]
-
     votes_2 = [list(np.random.permutation([j for j in range(size_1, num_agents)])) +
                list(np.random.permutation(size_1))
                for _ in range(size_2)]
-
     votes = votes_1 + votes_2
-
     return convert(votes)
 
 
-def generate_roommates_id_votes(num_agents: int = None, **kwargs):
-    """ One of four extreme points for Compass """
+def generate_roommates_id_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+    """
+    Generates a list of votes based on the Identity model.
 
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        **kwargs
+            Additional parameters for customization.
+
+    Returns
+    -------
+        list[list[int]]
+            A list of votes.
+    """
     votes = [list(range(num_agents)) for _ in range(num_agents)]
-
     return convert(votes)
 
 
-def generate_roommates_asymmetric_votes(num_agents: int = None, **kwargs):
-    """ One of four extreme points for Compass """
-    votes = [list(range(num_agents)) for _ in range(num_agents)]
+def generate_roommates_asymmetric_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+    """
+    Generates a list of votes based on the Asymmetric model.
 
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        **kwargs
+            Additional parameters for customization.
+
+    Returns
+    -------
+        list[list[int]]
+            A list of votes.
+    """
+    votes = [list(range(num_agents)) for _ in range(num_agents)]
     votes = [rotate(vote, shift) for shift, vote in enumerate(votes)]
-
     return convert(votes)
 
 
-def generate_roommates_symmetric_votes(num_agents: int = None, **kwargs):
-    """ One of four extreme points for Compass """
+def generate_roommates_symmetric_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+    """
+    Generates a matrix of votes based on the Symmetric model.
 
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        **kwargs
+            Additional parameters for customization.
+
+    Returns
+    -------
+        list[list[int]]
+            A list of votes.
+    """
     num_rounds = num_agents - 1
 
     def next(agents):
@@ -82,12 +146,25 @@ def generate_roommates_symmetric_votes(num_agents: int = None, **kwargs):
             votes[x][pos] = y
             votes[y][pos] = x
 
-    return votes
+    return votes.tolist()
 
 
-def generate_roommates_chaos_votes(num_agents: int = None, **kwargs):
-    """ One of four extreme points for Compass """
+def generate_roommates_chaos_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+    """
+    Generates a matrix of votes based on the Chaos model.
 
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        **kwargs
+            Additional parameters for customization.
+
+    Returns
+    -------
+        list[list[int]]
+            A list of votes.
+    """
     if num_agents-1 % 3 == 0:
         logging.warning("Incorrect realization of Chaos instance")
 
@@ -110,9 +187,4 @@ def generate_roommates_chaos_votes(num_agents: int = None, **kwargs):
                 if k1 != i and matrix[i][matrix[k1][k2]] == matrix[k1][k2]:
                     votes[k1][k2] = i
 
-    return votes
-
-
-# # # # # # # # # # # # # # # #
-# LAST CLEANUP ON: 16.03.2022 #
-# # # # # # # # # # # # # # # #
+    return votes.tolist()

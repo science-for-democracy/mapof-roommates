@@ -1,9 +1,25 @@
 from mapof.core.matchings import *
+
 from mapof.roommates.objects.Roommates import Roommates
 
 
-# MAIN DISTANCES
-def compute_retrospective_distance(instance_1, instance_2, inner_distance):
+def compute_retrospective_distance(instance_1, instance_2, inner_distance) -> (float, list):
+    """
+    Computes the retrospective distance between two Roommates instances.
+
+    Parameters
+    ----------
+        instance_1
+        instance_2
+        inner_distance
+
+    Returns
+    -------
+        float
+            The distance between the two instances.
+        list
+            The matching between the two instances.
+    """
     cost_table = get_matching_cost_retrospective(instance_1, instance_2, inner_distance)
     return solve_matching_vectors(cost_table)
 

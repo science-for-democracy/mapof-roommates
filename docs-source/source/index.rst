@@ -1,14 +1,16 @@
 Mapof-roommates
 ===============
 
-Mapof-roommates package.
+Mapof-roommates Python package.
 
 
 .. toctree::
     :hidden:
 
-    Mapof <self>
-    objects/index
-    persistence/index
+    Mapof-Roommates <self>
+    installation
+    quickstart
+    reference/index
+    citation
 
 
