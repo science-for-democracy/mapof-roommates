@@ -3,15 +3,11 @@ import logging
 from mapof.core.distances import extract_distance_id
 
 from mapof.roommates.distances import main_distances as mrd
-from mapof.roommates.distances import spearman as spr
 from mapof.roommates.objects.Roommates import Roommates
 
 registered_roommates_distances = {
     'mutual_attraction': mrd.compute_retrospective_distance,
     'positionwise': mrd.compute_positionwise_distance,
-
-    # 'spearman_distance': spr.spearman_distance,
-    # 'spearman_distance_linear': spr.spearman_distance_linear,
 }
 
 

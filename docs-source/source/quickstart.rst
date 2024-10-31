@@ -6,11 +6,11 @@ Quick Start
 Import
 ------
 
-To import mapof-elections python package:
+To import mapof-roommates python package:
 
 .. code-block:: python
 
-    import mapof.marriages as mapof
+    import mapof.roommates as mapof
 
 
 
