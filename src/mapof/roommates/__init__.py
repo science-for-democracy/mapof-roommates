@@ -35,5 +35,7 @@ def generate_roommates_instance(**kwargs):
 def generate_roommates_votes(**kwargs):
     return rom.generate_votes(**kwargs)
 
-def compute_distance(*args, **kwargs):
+
+def compute_distance(*args,
+                     **kwargs):
     return get_distance(*args, **kwargs)

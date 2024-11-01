@@ -1,19 +1,5 @@
 import gurobipy as gp
 from gurobipy import GRB
-from random import shuffle
-import statistics
-import warnings
-import sys
-import time
-import networkx as nx
-
-def generate_instance(num_agents):
-    instance=[]
-    for i in range(num_agents):
-        pref = [x for x in range(num_agents) if x != i]
-        shuffle(pref)
-        instance.append(pref)
-    return instance
 
 
 #Only works for even number of agents
@@ -57,6 +43,7 @@ def swap_distance_to_stable(instance):
     m.optimize()
 
     return int(m.objVal)
+
 
 def delete_distance_to_stable(instance):
     num_agents=len(instance)
@@ -131,9 +118,3 @@ def min_num_blocking_agents_matching(instance):
                 matching[j]=i
     print(m.objVal)
     return int(m.objVal)
-
-#for i in range(100):
-#    instance=generate_instance(50)
-#    print(min_num_blocking_agents_matching(instance))
-#    print(swap_distance_to_stable(instance))
-#    print(delete_distance_to_stable(instance))

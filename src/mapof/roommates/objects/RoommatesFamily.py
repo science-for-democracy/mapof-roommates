@@ -25,7 +25,8 @@ class RoommatesFamily(Family):
                  starting_from: int = 0,
                  path: dict = None,
                  single: bool = False,
-                 num_agents: int = None):
+                 num_agents: int = None,
+                 **kwargs):
 
         super().__init__(culture_id=culture_id,
                          family_id=family_id,
@@ -39,7 +40,8 @@ class RoommatesFamily(Family):
                          marker=marker,
                          starting_from=starting_from,
                          path=path,
-                         single=single)
+                         single=single,
+                         **kwargs)
 
         self.num_agents = num_agents
 

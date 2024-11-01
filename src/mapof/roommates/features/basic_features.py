@@ -189,8 +189,11 @@ def num_of_bps_maximumWeight(instance) -> int:
         matching_dict[p[1]] = p[0]
     return number_blockingPairs(instance.votes,matching_dict)
 
-# NEW 15.03.2022
+
 def mutuality(instance) -> int:
+    """
+    Computes the mutuality score of an SR instance.
+    """
     vectors = instance.get_retrospective_vectors()
     score = 0
     for vector in vectors:

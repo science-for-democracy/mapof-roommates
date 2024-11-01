@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Urn &#8212; Map of Roommates</title>
+    <title>Fast Distances &#8212; Map of Roommates</title>
   
   
   
@@ -40,11 +40,11 @@
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/cultures/urn';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/distances/fast_distances';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Mallows" href="mallows.html" />
-    <link rel="prev" title="Impartial" href="impartial.html" />
+    <link rel="next" title="Features" href="../features/index.html" />
+    <link rel="prev" title="Main" href="main.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,19 +153,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Code Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Cultures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="list_of_cultures.html">List of Cultures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main.html">Main</a></li>
-<li class="toctree-l3"><a class="reference internal" href="impartial.html">Impartial</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Urn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mallows.html">Mallows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euclidean.html">Euclidean</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cultures/index.html">Cultures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cultures/list_of_cultures.html">List of Cultures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cultures/main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cultures/impartial.html">Impartial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cultures/urn.html">Urn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cultures/mallows.html">Mallows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cultures/euclidean.html">Euclidean</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../distances/index.html">Distances</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../distances/list_of_distances.html">List of Distances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../distances/main.html">Main</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../distances/fast_distances.html">Fast Distances</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Distances</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="list_of_distances.html">List of Distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main.html">Main</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Fast Distances</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../features/index.html">Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -258,7 +258,7 @@
       
       
       
-      <li><a href="../../_sources/reference/cultures/urn.rst" target="_blank"
+      <li><a href="../../_sources/reference/distances/fast_distances.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -342,7 +342,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Urn</h1>
+    <h1>Fast Distances</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -352,7 +352,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.urn.generate_roommates_urn_votes"><code class="docutils literal notranslate"><span class="pre">generate_roommates_urn_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.distances.fast_distances.compute_positionwise_distance"><code class="docutils literal notranslate"><span class="pre">compute_positionwise_distance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.distances.fast_distances.compute_retrospective_distance"><code class="docutils literal notranslate"><span class="pre">compute_retrospective_distance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.distances.fast_distances.get_matching_cost_positionwise"><code class="docutils literal notranslate"><span class="pre">get_matching_cost_positionwise()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.distances.fast_distances.get_matching_cost_retrospective"><code class="docutils literal notranslate"><span class="pre">get_matching_cost_retrospective()</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -364,27 +367,62 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-mapof.roommates.cultures.urn">
-<span id="urn"></span><h1>Urn<a class="headerlink" href="#module-mapof.roommates.cultures.urn" title="Link to this heading">#</a></h1>
+  <section id="module-mapof.roommates.distances.fast_distances">
+<span id="fast-distances"></span><h1>Fast Distances<a class="headerlink" href="#module-mapof.roommates.distances.fast_distances" title="Link to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="mapof.roommates.cultures.urn.generate_roommates_urn_votes">
-<span class="sig-name descname"><span class="pre">generate_roommates_urn_votes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/mapof/roommates/cultures/urn.html#generate_roommates_urn_votes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.cultures.urn.generate_roommates_urn_votes" title="Link to this definition">#</a></dt>
-<dd><p>Generates a list of votes based on the urn model.</p>
+<dt class="sig sig-object py" id="mapof.roommates.distances.fast_distances.compute_positionwise_distance">
+<span class="sig-name descname"><span class="pre">compute_positionwise_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_distance)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;class</span> <span class="pre">'float'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;class</span> <span class="pre">'list'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mapof/roommates/distances/fast_distances.html#compute_positionwise_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.distances.fast_distances.compute_positionwise_distance" title="Link to this definition">#</a></dt>
+<dd><p>Computes the positionwise distance between two Roommates instances.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>num_agents</strong> (<em>int</em>) – Number of agents.</p></li>
-<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – Parameter for the urn model. Default is 0.1.</p></li>
-<li><p><strong>**kwargs</strong> – Additional parameters for customization.</p></li>
+<li><p><strong>instance_1</strong></p></li>
+<li><p><strong>instance_2</strong></p></li>
+<li><p><strong>inner_distance</strong></p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of votes.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>list</em>[<em>list</em>[<em>int</em>]]</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float</em> – The distance between the two instances.</p></li>
+<li><p><em>list</em> – The matching between the two instances.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mapof.roommates.distances.fast_distances.compute_retrospective_distance">
+<span class="sig-name descname"><span class="pre">compute_retrospective_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_distance)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;class</span> <span class="pre">'float'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;class</span> <span class="pre">'list'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/mapof/roommates/distances/fast_distances.html#compute_retrospective_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.distances.fast_distances.compute_retrospective_distance" title="Link to this definition">#</a></dt>
+<dd><p>Computes the retrospective distance between two Roommates instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance_1</strong></p></li>
+<li><p><strong>instance_2</strong></p></li>
+<li><p><strong>inner_distance</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float</em> – The distance between the two instances.</p></li>
+<li><p><em>list</em> – The matching between the two instances.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mapof.roommates.distances.fast_distances.get_matching_cost_positionwise">
+<span class="sig-name descname"><span class="pre">get_matching_cost_positionwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../objects/Roommates.html#mapof.roommates.objects.Roommates.Roommates" title="mapof.roommates.objects.Roommates.Roommates"><span class="pre">Roommates</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../objects/Roommates.html#mapof.roommates.objects.Roommates.Roommates" title="mapof.roommates.objects.Roommates.Roommates"><span class="pre">Roommates</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/mapof/roommates/distances/fast_distances.html#get_matching_cost_positionwise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.distances.fast_distances.get_matching_cost_positionwise" title="Link to this definition">#</a></dt>
+<dd><p>Return: Cost table</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mapof.roommates.distances.fast_distances.get_matching_cost_retrospective">
+<span class="sig-name descname"><span class="pre">get_matching_cost_retrospective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../objects/Roommates.html#mapof.roommates.objects.Roommates.Roommates" title="mapof.roommates.objects.Roommates.Roommates"><span class="pre">Roommates</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../objects/Roommates.html#mapof.roommates.objects.Roommates.Roommates" title="mapof.roommates.objects.Roommates.Roommates"><span class="pre">Roommates</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/mapof/roommates/distances/fast_distances.html#get_matching_cost_retrospective"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.distances.fast_distances.get_matching_cost_retrospective" title="Link to this definition">#</a></dt>
+<dd><p>Return: Cost table</p>
 </dd></dl>
 
 </section>
@@ -401,20 +439,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="impartial.html"
+       href="main.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Impartial</p>
+        <p class="prev-next-title">Main</p>
       </div>
     </a>
     <a class="right-next"
-       href="mallows.html"
+       href="../features/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Mallows</p>
+        <p class="prev-next-title">Features</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -434,7 +472,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.urn.generate_roommates_urn_votes"><code class="docutils literal notranslate"><span class="pre">generate_roommates_urn_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.distances.fast_distances.compute_positionwise_distance"><code class="docutils literal notranslate"><span class="pre">compute_positionwise_distance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.distances.fast_distances.compute_retrospective_distance"><code class="docutils literal notranslate"><span class="pre">compute_retrospective_distance()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.distances.fast_distances.get_matching_cost_positionwise"><code class="docutils literal notranslate"><span class="pre">get_matching_cost_positionwise()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.distances.fast_distances.get_matching_cost_retrospective"><code class="docutils literal notranslate"><span class="pre">get_matching_cost_retrospective()</span></code></a></li>
 </ul>
   </nav></div>
 

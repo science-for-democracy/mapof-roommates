@@ -7,6 +7,6 @@ Distances
 
     list_of_distances
     main
-    main_distances
+    fast_distances
 
 

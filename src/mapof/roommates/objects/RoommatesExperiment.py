@@ -167,7 +167,8 @@ class RoommatesExperiment(Experiment, ABC):
                    family_id: str = None,
                    single_instance: bool = False,
                    num_agents: int = None,
-                   path: dict = None
+                   path: dict = None,
+                   **kwargs,
                    ):
 
         if instance_id is not None:
@@ -199,7 +200,9 @@ class RoommatesExperiment(Experiment, ABC):
             show=show,
             size=size, marker=marker,
             num_agents=num_agents,
-            path=path)
+            path=path,
+            **kwargs
+        )
 
         self.num_families = len(self.families)
         self.num_instances = sum([self.families[family_id].size for family_id in self.families])
@@ -218,6 +221,9 @@ class RoommatesExperiment(Experiment, ABC):
         #     self.update_map_csv()  # To be implemented
 
         return list(new_instances.keys())
+
+    def set_default_num_agents(self, num_agents: int):
+        self.default_num_agents = num_agents
 
     def get_distance(self,
                      election_1: Roommates,

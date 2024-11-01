@@ -101,7 +101,7 @@ def generate_roommates_asymmetric_votes(num_agents: int = None, **kwargs) -> lis
     return convert(votes)
 
 
-def generate_roommates_symmetric_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+def generate_roommates_symmetric_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
     """
     Generates a matrix of votes based on the Symmetric model.
 

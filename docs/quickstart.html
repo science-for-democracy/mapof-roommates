@@ -43,7 +43,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'quickstart';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Citation Policy" href="citation.html" />
+    <link rel="next" title="Code Reference" href="reference/index.html" />
     <link rel="prev" title="Installation" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -152,6 +152,42 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Mapof-Roommates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Quick Start</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reference/index.html">Code Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="reference/cultures/index.html">Cultures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/cultures/list_of_cultures.html">List of Cultures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/cultures/main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/cultures/impartial.html">Impartial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/cultures/urn.html">Urn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/cultures/mallows.html">Mallows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/cultures/euclidean.html">Euclidean</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="reference/distances/index.html">Distances</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/distances/list_of_distances.html">List of Distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/distances/main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/distances/fast_distances.html">Fast Distances</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="reference/features/index.html">Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/features/list_of_features.html">List of Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/features/main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/features/basic_features.html">Basic Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/features/stability_features.html">Stability Features</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="reference/objects/index.html">Objects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/objects/Roommates.html">Roommates Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/objects/RoommatesExperiment.html">RoommatesExperiment Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/objects/RoommatesFamily.html">RoommatesFamily Object</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="reference/persistence/index.html">Persistence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/persistence/instance_imports.html">Instance Imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/persistence/instance_exports.html">Instance Exports</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="citation.html">Citation Policy</a></li>
 </ul>
 
@@ -317,7 +353,19 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-tasks">General Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-tasks">General Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-sr-instance-from-statistical-culture">Generate SR Instance from Statistical Culture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-distance-between-two-sr-instances">Compute Distance between Two SR Instances</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">Experiments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-sr-instances-as-part-of-experiment">Generate SR Instances as Part of Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-family-of-sr-instances">Generate Family of SR Instances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-map-of-sr-instances">Create Map of SR Instances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coloring-map-of-sr-instances">Coloring Map of SR Instances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offline-experiment">Offline Experiment</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -333,14 +381,355 @@ document.write(`
 <span id="quickstart"></span><h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h1>
 <section id="import">
 <h2>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
-<p>To import mapof-elections python package:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mapof.marriages</span> <span class="k">as</span> <span class="nn">mapof</span>
+<p>To import mapof-roommates python package:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mapof.roommates</span> <span class="k">as</span> <span class="nn">mapof</span>
 </pre></div>
 </div>
 </section>
 <section id="general-tasks">
 <h2>General Tasks<a class="headerlink" href="#general-tasks" title="Link to this heading">#</a></h2>
-<p>To be updated.</p>
+<section id="generate-sr-instance-from-statistical-culture">
+<span id="generate-roommates-instance"></span><h3>Generate SR Instance from Statistical Culture<a class="headerlink" href="#generate-sr-instance-from-statistical-culture" title="Link to this heading">#</a></h3>
+<div style="background-color: #cce0ff; padding: 5px; border-radius: 5px;">
+    <strong>Objective</strong>
+    <em>Generate impartial culture instance with 10 agents.</em>
+</div><p>In this section, you will learn how to generate stable roommates instances from different statistical cultures.
+We will start by defining what we mean by a stable roommates instances.
+Formally, a stable roommates (SR) instance consists of a set of agents, with each agent having a preference order over all other agents.</p>
+<p>In practice, we represent an SR instance by <code class="docutils literal notranslate"><span class="pre">RoommatesInstance</span></code> object, which among other fields, contains:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">num_agents</span>     <span class="c1"># number of agents</span>
+<span class="n">instance</span><span class="o">.</span><span class="n">votes</span>          <span class="c1"># preference orders</span>
+</pre></div>
+</div>
+<p>By <code class="docutils literal notranslate"><span class="pre">votes</span></code>, we refer to a two-dimensional array <code class="docutils literal notranslate"><span class="pre">list[list[int]]</span></code>, where each row represents a single agent (i.e., vote).</p>
+<p>E.g., <code class="docutils literal notranslate"><span class="pre">votes</span> <span class="pre">=</span> <span class="pre">[[1,2,3],[2,0,3],[3,1,0],[0,2,1]</span></code> refers to an instance with four following votes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1 ≻ 2 ≻ 3
+2 ≻ 0 ≻ 3
+3 ≻ 1 ≻ 0
+0 ≻ 2 ≻ 1
+</pre></div>
+</div>
+<div style="background-color: #ccffcc; padding: 5px; border-radius: 5px;">
+<strong>Solution</strong>
+To generate an SR instance we use the ``generate_roommates_instance()`` function:
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">generate_roommates_instance</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;impartial&#39;</span><span class="p">,</span> <span class="n">num_agents</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The list of all implemented cultures can be found in <a class="reference internal" href="reference/cultures/list_of_cultures.html#list-of-cultures"><span class="std std-ref">List of Cultures</span></a>.</p>
+<p>If you want to add your own culture, you can do this by using the <code class="docutils literal notranslate"><span class="pre">add_culture()</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">add_culture</span><span class="p">(</span><span class="s2">&quot;my_name&quot;</span><span class="p">,</span> <span class="n">my_func</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function takes two arguments: The first one is the name of the new culture,
+and the second one is the function that generates the votes.
+The function that generates the votes can take any number of arguments,
+but the first one should be <code class="docutils literal notranslate"><span class="pre">num_agents</span></code> parameter.
+Moreover, the function should return votes as a list of list.
+Technically the signature is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_func</span><span class="p">(</span><span class="n">num_agents</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+</pre></div>
+</div>
+</section>
+<section id="compute-distance-between-two-sr-instances">
+<h3>Compute Distance between Two SR Instances<a class="headerlink" href="#compute-distance-between-two-sr-instances" title="Link to this heading">#</a></h3>
+<div style="background-color: #cce0ff; padding: 5px; border-radius: 5px;">
+<strong>Objective</strong>
+<em>Compute the l1-mutual_attraction distance between two SR instances.</em>
+</div><p>To compute a distance, use the <code class="docutils literal notranslate"><span class="pre">compute_distance</span></code> function, which takes two instances and a <code class="docutils literal notranslate"><span class="pre">distance_id</span></code> as input.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">distances</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">compute_distance</span><span class="p">(</span>
+                                    <span class="n">instance_1</span><span class="p">,</span>
+                                    <span class="n">instance_2</span><span class="p">,</span>
+                                    <span class="n">distance_id</span><span class="o">=</span><span class="s1">&#39;l1-mutual_attraction&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function returns a tuple containing the distance and the mapping that witnesses this distance. If a given distance does not use a mapping, it returns <code class="docutils literal notranslate"><span class="pre">None</span></code> instead.</p>
+<div style="background-color: #ccffcc; padding: 5px; border-radius: 5px;">
+<strong>Solution</strong>
+We start by generating two instances, and then we compute the distance:
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instance_1</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">generate_roommates_instance</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;impartial&#39;</span><span class="p">,</span> <span class="n">num_agents</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">instance_2</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">generate_roommates_instance</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;impartial&#39;</span><span class="p">,</span> <span class="n">num_agents</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">distance</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">compute_distance</span><span class="p">(</span>
+                                        <span class="n">instance_1</span><span class="p">,</span>
+                                        <span class="n">instance_2</span><span class="p">,</span>
+                                        <span class="n">distance_id</span><span class="o">=</span><span class="s1">&#39;l1-mutual_attraction&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A list of all implemented distances is available in <a class="reference internal" href="reference/distances/list_of_distances.html#list-of-distances"><span class="std std-ref">List of Distances</span></a>.</p>
+</section>
+</section>
+<section id="experiments">
+<span id="id1"></span><h2>Experiments<a class="headerlink" href="#experiments" title="Link to this heading">#</a></h2>
+<section id="generate-sr-instances-as-part-of-experiment">
+<h3>Generate SR Instances as Part of Experiment<a class="headerlink" href="#generate-sr-instances-as-part-of-experiment" title="Link to this heading">#</a></h3>
+<div style="background-color: #cce0ff; padding: 5px; border-radius: 5px;">
+<strong>Objective</strong>
+<em>Generate (within experiment) impartial culture instance with 16 agents voters</em>
+</div><p>In this section, we introduce an abstract object called <code class="docutils literal notranslate"><span class="pre">Experiment</span></code>, which helps us keep things clear. Finally, we generate instances using the <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> object.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> is an abstract object, which, for now, can be seen as a black box in which all the computation takes place. At first, it might be confusing, but in the long run, it simplifies things.
+Before carrying out any other operations we need to create an empty <code class="docutils literal notranslate"><span class="pre">Experiment</span></code>.
+For this, we use the function <code class="docutils literal notranslate"><span class="pre">prepare_online_ordinal_experiment()</span></code>,
+which returns an empty <code class="docutils literal notranslate"><span class="pre">Experiment</span></code>. So, in order to prepare an empty <code class="docutils literal notranslate"><span class="pre">Experiment</span></code>, type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">prepare_online_roommates_experiment</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To give you a hint of what the <code class="docutils literal notranslate"><span class="pre">Experiment</span></code> is, we present some of its fields and methods:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">instances</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">distances</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">coordinates</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">features</span>
+
+<span class="n">experiment</span><span class="o">.</span><span class="n">add_instance</span><span class="p">()</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">add_family</span><span class="p">()</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">compute_distances</span><span class="p">()</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">embed_2d</span><span class="p">()</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">compute_feature</span><span class="p">()</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">print_map_2d</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, we will focus on the <code class="docutils literal notranslate"><span class="pre">add_instance()</span></code> method. In order to generate an instance,
+it suffices to run the <code class="docutils literal notranslate"><span class="pre">add_instance()</span></code> method, and specify the <code class="docutils literal notranslate"><span class="pre">culture_id</span></code>.
+For example, if we want to generate an instance from impartial culture, we type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">add_instance</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;impartial&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All instances added to the experiment are stored in an <code class="docutils literal notranslate"><span class="pre">experiment.instances</span></code> dictionary, where the key is the <code class="docutils literal notranslate"><span class="pre">instance_id</span></code>, and the value is the <code class="docutils literal notranslate"><span class="pre">Instance</span></code> object. If you want to specify your own <code class="docutils literal notranslate"><span class="pre">instance_id</span></code>, you can do so using the <code class="docutils literal notranslate"><span class="pre">instance_id</span></code> argument, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">add_instance</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;impartial&#39;</span><span class="p">,</span> <span class="n">instance_id</span><span class="o">=</span><span class="s1">&#39;IC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, the generated instance will have 20 agents. However, if you want to generate an instance with a different number of agents, use the <code class="docutils literal notranslate"><span class="pre">num_agents</span></code> argument:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">add_instance</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;impartial&#39;</span><span class="p">,</span> <span class="n">num_agents</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to change the default value not for a single SR instance, but for all instances generated in the future, type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">set_default_num_agents</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<div style="background-color: #ccffcc; padding: 5px; border-radius: 5px;">
+<strong>Solution</strong> Our aim was to generate an impartial culture instance (with 16 agents) within the experiment.
+Below we present the code with the solution.
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">prepare_online_roommates_experiment</span><span class="p">()</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">add_instance</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;impartial&#39;</span><span class="p">,</span> <span class="n">num_agents</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="generate-family-of-sr-instances">
+<h3>Generate Family of SR Instances<a class="headerlink" href="#generate-family-of-sr-instances" title="Link to this heading">#</a></h3>
+<div style="background-color: #cce0ff; padding: 5px; border-radius: 5px;">
+<strong>Objective</strong> <em>Generate 20 instances from Normalized Mallows culture with norm-ϕ = 0.5</em>
+</div><p>If you would like to add many instances from the same culture, instead of adding them one by one, you can add them as one family of instances.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">add_family</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;impartial&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The main difference between <code class="docutils literal notranslate"><span class="pre">add_instance</span></code> and <code class="docutils literal notranslate"><span class="pre">add_family</span></code> is the fact that the latter function has an additional argument called size,
+which specifies how many instances from a given distribution will be created.</p>
+<p>Moreover, note that instead of impartial culture, we want to generate Normalized Mallows instances,
+which are parameterized by norm-ϕ
+To generate a single Normalized Mallows instance with norm-ϕ = 0.5, we should type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">add_instance</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;norm-mallows&#39;</span><span class="p">,</span> <span class="n">normphi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div style="background-color: #ccffcc; padding: 5px; border-radius: 5px;">
+<strong>Solution</strong> Joining the upper two things together we obtain the solution.
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">prepare_online_ordinal_experiment</span><span class="p">()</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">add_family</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;norm-mallows&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">normphi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-map-of-sr-instances">
+<h3>Create Map of SR Instances<a class="headerlink" href="#create-map-of-sr-instances" title="Link to this heading">#</a></h3>
+<div style="background-color: #cce0ff; padding: 5px; border-radius: 5px;">
+<strong>Objective</strong> <em>Create a map of SR instances (from Fame and Norm-Mallows cultures)</em>
+</div><p>Creating a map of SR instances is an ultimate tool of this package.
+We divide the procedure into four major steps,
+which we describe in detail one by one,
+with the exception of the first step which was described before.
+The steps are the following:</p>
+<ol class="arabic simple">
+<li><p>Generate instances</p></li>
+<li><p>Compute distances</p></li>
+<li><p>Embed in 2D</p></li>
+<li><p>Print the map</p></li>
+</ol>
+<p class="rubric">Compute Distances</p>
+<p>In order to compute distances between instances, use the following function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">compute_distances</span><span class="p">(</span><span class="n">distance_id</span><span class="o">=</span><span class="s1">&#39;l1-mutual_attraction&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The distances are stored in the <code class="docutils literal notranslate"><span class="pre">distances</span></code> field, which is a dictionary of dictionaries.
+If you want to access the distances, just type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">distances</span>
+</pre></div>
+</div>
+<p><strong>Example</strong></p>
+<p>Let us assume that we have three instances generated from impartial culture with the following ids: <code class="docutils literal notranslate"><span class="pre">ic_0,</span> <span class="pre">ic_1,</span> <span class="pre">ic_2</span></code>.
+Then, the <code class="docutils literal notranslate"><span class="pre">distances</span></code> (dictionary of dictionaries) look as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;ic_0&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;ic_1&#39;</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s1">&#39;ic_2&#39;</span><span class="p">:</span> <span class="mf">1.7</span><span class="p">},</span>
+ <span class="s1">&#39;ic_1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;ic_0&#39;</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s1">&#39;ic_2&#39;</span><span class="p">:</span> <span class="mf">1.9</span><span class="p">},</span>
+ <span class="s1">&#39;ic_2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;ic_0&#39;</span><span class="p">:</span> <span class="mf">1.7</span><span class="p">,</span> <span class="s1">&#39;ic_1&#39;</span><span class="p">:</span> <span class="mf">1.9</span><span class="p">}}</span>
+</pre></div>
+</div>
+<p class="rubric">Embedding</p>
+<p>In order to embed the instances into 2D Euclidean space, run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">embed_2d</span><span class="p">(</span><span class="n">embedding_id</span><span class="o">=</span><span class="s1">&#39;kk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The coordinates are stored in the <code class="docutils literal notranslate"><span class="pre">coordinates</span></code> field, which is a dictionary of lists. If you want to access the coordinates, just type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">coordinates</span>
+</pre></div>
+</div>
+<p>More information about different embedding algorithms is available in TBU.</p>
+<p><strong>Example</strong></p>
+<p>Let us assume that we have four instances generated from Normalized Mallows culture with the following ids: <code class="docutils literal notranslate"><span class="pre">mal_0,</span> <span class="pre">mal_1,</span> <span class="pre">mal_2,</span> <span class="pre">mal_3</span></code>. Then, the <code class="docutils literal notranslate"><span class="pre">coordinates</span></code> (dictionary of lists) look as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;mal_1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+ <span class="s1">&#39;mal_2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span>
+ <span class="s1">&#39;mal_3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+ <span class="s1">&#39;mal_4&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p class="rubric">Printing</p>
+<p>In order to print the map, run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">print_map_2d</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id2">
+<span id="fig-ex-1"></span><a class="reference internal image-reference" href="_images/ex_1.png"><img alt="_images/ex_1.png" src="_images/ex_1.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example 1.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<span id="fig-ex-2"></span><a class="reference internal image-reference" href="_images/ex_2.png"><img alt="_images/ex_2.png" src="_images/ex_2.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example 2.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div style="background-color: #ccffcc; padding: 5px; border-radius: 5px;">
+<strong>Initial Solution</strong> After combining four steps described above we obtain the following code:
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">prepare_online_roommates_experiment</span><span class="p">()</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">set_default_num_agents</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">add_family</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;fame&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">add_family</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;norm-mallows&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">normphi</span><span class="o">=</span><span class="mf">0.33</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">compute_distances</span><span class="p">(</span><span class="n">distance_id</span><span class="o">=</span><span class="s1">&#39;l1-mutual_attraction&#39;</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">embed_2d</span><span class="p">(</span><span class="n">embedding_id</span><span class="o">=</span><span class="s1">&#39;kk&#39;</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">print_map_2d</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As a result of the code above, you will see two separate black clouds of points (see <a class="reference internal" href="#fig-ex-1"><span class="std std-ref">Example 1.</span></a>). In order to make the map more pleasing, we can specify the colors/markers/label of each instance or family of instances separately. We do it via <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">marker</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code> arguments.</p>
+<div style="background-color: #ccffcc; padding: 5px; border-radius: 5px;">
+<strong>Improved Solution</strong>
+</div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">prepare_online_roommates_experiment</span><span class="p">()</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">set_default_num_agents</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">add_family</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;fame&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                      <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fame&#39;</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">add_family</span><span class="p">(</span><span class="n">culture_id</span><span class="o">=</span><span class="s1">&#39;norm-mallows&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                      <span class="n">normphi</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span>
+                      <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
+                      <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Norm-Mallows&#39;</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">compute_distances</span><span class="p">(</span><span class="n">distance_id</span><span class="o">=</span><span class="s1">&#39;l1-mutual_attraction&#39;</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">embed_2d</span><span class="p">(</span><span class="n">embedding_id</span><span class="o">=</span><span class="s1">&#39;kk&#39;</span><span class="p">)</span>
+<span class="n">experiment</span><span class="o">.</span><span class="n">print_map_2d</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id4">
+<span id="fig-original"></span><a class="reference internal image-reference" href="_images/original.png"><img alt="_images/original.png" src="_images/original.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example 3: A map for the 200 dataset of Böhmer et al. [2024].</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The picture created by the improved version is presented in <a class="reference internal" href="#fig-ex-2"><span class="std std-ref">Example 2.</span></a>.
+Moreover, for illustrative purposes, in <a class="reference internal" href="#fig-original"><span class="std std-ref">Example 3</span></a>
+we present the map for the 200 dataset of Böhmer et al. [2024]. Note that the labels and arrows are created in PowerPoint and are not part of the mapof software.</p>
+</section>
+<section id="coloring-map-of-sr-instances">
+<h3>Coloring Map of SR Instances<a class="headerlink" href="#coloring-map-of-sr-instances" title="Link to this heading">#</a></h3>
+<p>It is interesting to color the map according to certain statistics, referred to as features.</p>
+<p class="rubric">Basic</p>
+<p>We offer several pre-implemented features.
+For example, if you would like to compute the highest plurality score for all instances, you can write:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">compute_feature</span><span class="p">(</span><span class="n">feature_id</span><span class="o">=</span><span class="s1">&#39;mutuality&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To print it, use the <code class="docutils literal notranslate"><span class="pre">feature</span></code> argument:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">print_map_2d_colored_by_feature</span><span class="p">(</span><span class="n">feature_id</span><span class="o">=</span><span class="s1">&#39;mutuality&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To access the computed values, type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="s1">&#39;mutuality&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>List of all the available features can be found in the <a class="reference internal" href="reference/features/list_of_features.html#list-of-features"><span class="std std-ref">List of Features</span></a>.</p>
+<p class="rubric">Printing</p>
+<p>Basic arguments for the <code class="docutils literal notranslate"><span class="pre">print_map_2d</span></code> function are the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">saveas</span><span class="o">=</span><span class="nb">str</span>    <span class="c1"># save file as xyz.png</span>
+<span class="n">title</span><span class="o">=</span><span class="nb">str</span>     <span class="c1"># title of the image</span>
+<span class="n">legend</span><span class="o">=</span><span class="nb">bool</span>   <span class="c1"># (by default True) if False then hide the legend</span>
+<span class="n">ms</span><span class="o">=</span><span class="nb">int</span>        <span class="c1"># (by default 20) size of the marker</span>
+<span class="n">show</span><span class="o">=</span><span class="nb">bool</span>     <span class="c1"># (by default True) if False then hide the map</span>
+<span class="n">cmap</span>          <span class="c1"># cmap (only for printing features)</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">print_map_2d</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;My First Map&#39;</span><span class="p">,</span> <span class="n">saveas</span><span class="o">=</span><span class="s1">&#39;tmp&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="offline-experiment">
+<h3>Offline Experiment<a class="headerlink" href="#offline-experiment" title="Link to this heading">#</a></h3>
+<p>Offline experiments are similar to online experiments
+but offer the possibility to export/import files with instances, distances, coordinates, features, etc.</p>
+<p class="rubric">Prepare Experiment</p>
+<p>To prepare an offline experiment, run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">prepare_offline_roommates_experiment</span><span class="p">(</span>
+                        <span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;name_of_the_experiment&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function above will create the experiment structure as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>experiment_id/
+├── coordinates/
+├── distances/
+├── instances/
+├── features/
+└── map.csv
+</pre></div>
+</div>
+<p class="rubric">Prepare Instances</p>
+<p>To prepare instances, run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">prepare_instances</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Instances are generated according to the <cite>map.csv</cite> file. An example <cite>map.csv</cite> file is created automatically when preparing the experiment.</p>
+<p>All prepared instances are stored in the <code class="docutils literal notranslate"><span class="pre">instances</span></code> folder in a <code class="docutils literal notranslate"><span class="pre">soc</span></code> format. The definition of the <code class="docutils literal notranslate"><span class="pre">soc</span></code> format can be found at <a class="reference external" href="https://www.preflib.org/data/types#soc">Preflib</a>.</p>
+<p class="rubric">map.csv</p>
+<p>The controlling <cite>map.csv</cite> file usually consists of:</p>
+<ul class="simple">
+<li><p><strong>size</strong>: Number of instances to be generated from a given culture</p></li>
+<li><p><strong>num_agents</strong>: Number of candidates</p></li>
+<li><p><strong>culture_id</strong>: Code of the culture</p></li>
+<li><p><strong>params</strong>: Dictionary with parameters of a given culture</p></li>
+<li><p><strong>color</strong>: Color of the point(s) on the map</p></li>
+<li><p><strong>alpha</strong>: Transparency of the point(s)</p></li>
+<li><p><strong>marker</strong>: Marker of the point(s)</p></li>
+<li><p><strong>ms</strong>: Marker size</p></li>
+<li><p><strong>label</strong>: Label that will be printed in the legend</p></li>
+<li><p><strong>family_id</strong>: Family ID</p></li>
+<li><p><strong>path</strong>: Dictionary with parameters for generating a path of instances</p></li>
+</ul>
+<p class="rubric">Imports</p>
+<p>If some parts of your experiment are already precomputed, you can import them while preparing the experiment.
+Ensure they are in the proper files. If they were precomputed using mapof, no additional steps are required.</p>
+<p>If you want to import specific elements (different from default), specify them while preparing the experiment.
+For transparency, it is recommended to always define them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="n">mapof</span><span class="o">.</span><span class="n">prepare_offline_ordinal_experiment</span><span class="p">(</span>
+                        <span class="n">experiment_id</span><span class="o">=</span><span class="s1">&#39;name_of_the_experiment&#39;</span><span class="p">,</span>
+                        <span class="n">distance_id</span><span class="o">=</span><span class="s2">&quot;l1-mutual_attraction&#39;&quot;</span><span class="p">,</span>
+                        <span class="n">embedding_id</span><span class="o">=</span><span class="s2">&quot;kk&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Regarding features, if they are precomputed, the program will import them while printing the map.</p>
+</section>
 </section>
 </section>
 
@@ -365,11 +754,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="citation.html"
+       href="reference/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Citation Policy</p>
+        <p class="prev-next-title">Code Reference</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -390,7 +779,19 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-tasks">General Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-tasks">General Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-sr-instance-from-statistical-culture">Generate SR Instance from Statistical Culture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-distance-between-two-sr-instances">Compute Distance between Two SR Instances</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiments">Experiments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-sr-instances-as-part-of-experiment">Generate SR Instances as Part of Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-family-of-sr-instances">Generate Family of SR Instances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-map-of-sr-instances">Create Map of SR Instances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coloring-map-of-sr-instances">Coloring Map of SR Instances</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#offline-experiment">Offline Experiment</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

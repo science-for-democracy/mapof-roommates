@@ -2,7 +2,7 @@ import logging
 
 from mapof.core.distances import extract_distance_id
 
-from mapof.roommates.distances import main_distances as mrd
+from mapof.roommates.distances import fast_distances as mrd
 from mapof.roommates.objects.Roommates import Roommates
 
 registered_roommates_distances = {

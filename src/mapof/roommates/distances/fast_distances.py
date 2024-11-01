@@ -24,7 +24,23 @@ def compute_retrospective_distance(instance_1, instance_2, inner_distance) -> (f
     return solve_matching_vectors(cost_table)
 
 
-def compute_positionwise_distance(instance_1, instance_2, inner_distance):
+def compute_positionwise_distance(instance_1, instance_2, inner_distance) -> (float, list):
+    """
+    Computes the positionwise distance between two Roommates instances.
+
+    Parameters
+    ----------
+        instance_1
+        instance_2
+        inner_distance
+
+    Returns
+    -------
+        float
+            The distance between the two instances.
+        list
+            The matching between the two instances.
+    """
     cost_table = get_matching_cost_positionwise(instance_1, instance_2, inner_distance)
     return solve_matching_vectors(cost_table)
 
