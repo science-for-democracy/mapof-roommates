@@ -151,6 +151,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Mapof-Roommates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../reference/index.html">Code Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../reference/cultures/index.html">Cultures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/cultures/list_of_cultures.html">List of Cultures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/cultures/main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/cultures/impartial.html">Impartial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/cultures/urn.html">Urn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/cultures/mallows.html">Mallows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/cultures/euclidean.html">Euclidean</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../reference/distances/index.html">Distances</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/distances/list_of_distances.html">List of Distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/distances/main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/distances/fast_distances.html">Fast Distances</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../reference/features/index.html">Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/features/list_of_features.html">List of Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/features/main.html">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/features/basic_features.html">Basic Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/features/stability_features.html">Stability Features</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../reference/objects/index.html">Objects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/objects/Roommates.html">Roommates Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/objects/RoommatesExperiment.html">RoommatesExperiment Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/objects/RoommatesFamily.html">RoommatesFamily Object</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../reference/persistence/index.html">Persistence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/persistence/instance_imports.html">Instance Imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../reference/persistence/instance_exports.html">Instance Exports</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../citation.html">Citation Policy</a></li>
 </ul>
 
@@ -280,11 +316,10 @@ document.write(`
     <span class="k">return</span> <span class="n">ml</span><span class="o">.</span><span class="n">generate_mallows_votes</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">generate_roommates_norm_mallows_votes</span><span class="p">(</span><span class="n">num_agents</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                                          <span class="n">normphi</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
-                                          <span class="n">weight</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-                                          <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-
+<span class="k">def</span> <span class="nf">generate_norm_mallows_votes</span><span class="p">(</span><span class="n">num_agents</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                <span class="n">normphi</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+                                <span class="n">weight</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">phi</span> <span class="o">=</span> <span class="n">ml</span><span class="o">.</span><span class="n">phi_from_normphi</span><span class="p">(</span><span class="n">num_agents</span><span class="p">,</span> <span class="n">normphi</span><span class="o">=</span><span class="n">normphi</span><span class="p">)</span>
 
     <span class="n">votes</span> <span class="o">=</span> <span class="n">generate_mallows_votes</span><span class="p">(</span><span class="n">num_agents</span><span class="p">,</span> <span class="n">num_agents</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="n">phi</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
@@ -307,11 +342,13 @@ document.write(`
     <span class="k">return</span> <span class="n">votes</span>
 
 
-<div class="viewcode-block" id="generate_roommates_malasym_votes">
-<a class="viewcode-back" href="../../../../references/cultures/mallows.html#mapof.roommates.cultures.mallows.generate_roommates_malasym_votes">[docs]</a>
-<span class="k">def</span> <span class="nf">generate_roommates_malasym_votes</span><span class="p">(</span><span class="n">num_agents</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                                     <span class="n">normphi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                                     <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="generate_malasym_votes">
+<a class="viewcode-back" href="../../../../reference/cultures/mallows.html#mapof.roommates.cultures.mallows.generate_malasym_votes">[docs]</a>
+<span class="k">def</span> <span class="nf">generate_malasym_votes</span><span class="p">(</span>
+        <span class="n">num_agents</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">normphi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">_kwargs</span>
+<span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Mallows on top of Asymmetric instance &quot;&quot;&quot;</span>
 
     <span class="n">votes</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_agents</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_agents</span><span class="p">)]</span>
