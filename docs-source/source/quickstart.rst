@@ -479,8 +479,6 @@ To prepare instances, run:
 
 Instances are generated according to the `map.csv` file. An example `map.csv` file is created automatically when preparing the experiment.
 
-All prepared instances are stored in the ``instances`` folder in a ``soc`` format. The definition of the ``soc`` format can be found at `Preflib <https://www.preflib.org/data/types#soc>`_.
-
 .. rubric:: map.csv
 
 The controlling `map.csv` file usually consists of:

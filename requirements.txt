@@ -1,2 +1,3 @@
 mapof==0.1.0dev4
 matching>=1.4.3
+gurobipy

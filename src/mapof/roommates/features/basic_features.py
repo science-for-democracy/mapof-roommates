@@ -1,15 +1,11 @@
-try:
-    import gurobipy as gp
-    from gurobipy import GRB
-except:
-    pass
-
-from matching.games import StableRoommates
-
-from random import shuffle
 import statistics
 import sys
+from random import shuffle
+
+import gurobipy as gp
 import networkx as nx
+from gurobipy import GRB
+from matching.games import StableRoommates
 
 sys.setrecursionlimit(10000)
 # warnings.filterwarnings("error")
