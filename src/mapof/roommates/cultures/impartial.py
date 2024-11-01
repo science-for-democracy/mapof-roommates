@@ -6,7 +6,7 @@ from mapof.core.utils import *
 from mapof.roommates.cultures._utils import convert
 
 
-def generate_roommates_ic_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+def generate_ic_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
     """
     Generates a list of votes based on the Impartial Culture model.
 
@@ -26,7 +26,7 @@ def generate_roommates_ic_votes(num_agents: int = None, **kwargs) -> list[list[i
     return convert(votes)
 
 
-def generate_roommates_group_ic_votes(
+def generate_group_ic_votes(
         num_agents: int = None,
         proportion=0.5,
         **kwargs
@@ -60,7 +60,7 @@ def generate_roommates_group_ic_votes(
     return convert(votes)
 
 
-def generate_roommates_id_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+def generate_id_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
     """
     Generates a list of votes based on the Identity model.
 
@@ -80,7 +80,7 @@ def generate_roommates_id_votes(num_agents: int = None, **kwargs) -> list[list[i
     return convert(votes)
 
 
-def generate_roommates_asymmetric_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+def generate_asymmetric_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
     """
     Generates a list of votes based on the Asymmetric model.
 
@@ -101,7 +101,7 @@ def generate_roommates_asymmetric_votes(num_agents: int = None, **kwargs) -> lis
     return convert(votes)
 
 
-def generate_roommates_symmetric_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
+def generate_symmetric_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
     """
     Generates a matrix of votes based on the Symmetric model.
 
@@ -149,7 +149,7 @@ def generate_roommates_symmetric_votes(num_agents: int = None, **_kwargs) -> lis
     return votes.tolist()
 
 
-def generate_roommates_chaos_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+def generate_chaos_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
     """
     Generates a matrix of votes based on the Chaos model.
 

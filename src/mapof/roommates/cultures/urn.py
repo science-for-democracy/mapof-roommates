@@ -2,7 +2,7 @@ import numpy as np
 from mapof.roommates.cultures._utils import convert
 
 
-def generate_roommates_urn_votes(
+def generate_urn_votes(
         num_agents: int = None,
         alpha: int = 0.1,
         **kwargs

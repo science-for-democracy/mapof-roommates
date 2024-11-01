@@ -18,7 +18,7 @@ def weighted_l1(a1, a2, w):
     return total
 
 
-def generate_roommates_attributes_votes(num_agents: int = None,
+def generate_attributes_votes(num_agents: int = None,
                                         dim: int = 2,
                                         space='uniform',
                                         **kwargs):
@@ -43,7 +43,7 @@ def generate_roommates_attributes_votes(num_agents: int = None,
     return convert(votes)
 
 
-def generate_roommates_euclidean_votes(num_agents: int = None,
+def generate_euclidean_votes(num_agents: int = None,
                                        dim: int = 2,
                                        space='uniform',
                                        **kwargs):
@@ -63,7 +63,7 @@ def generate_roommates_euclidean_votes(num_agents: int = None,
     return convert(votes)
 
 
-def generate_roommates_reverse_euclidean_votes(num_agents: int = None,
+def generate_reverse_euclidean_votes(num_agents: int = None,
                                                dim: int = 2,
                                                space='uniform',
                                                proportion=0.5,
@@ -91,7 +91,7 @@ def generate_roommates_reverse_euclidean_votes(num_agents: int = None,
     return convert(votes)
 
 
-def generate_roommates_expectation_votes(num_agents: int = None,
+def generate_expectation_votes(num_agents: int = None,
                                          dim: int = 2,
                                          space='uniform',
                                          std=0.1,
@@ -119,7 +119,7 @@ def generate_roommates_expectation_votes(num_agents: int = None,
     return convert(votes)
 
 
-def generate_roommates_fame_votes(num_agents: int = None,
+def generate_fame_votes(num_agents: int = None,
                                   dim: int = 2,
                                   space='uniform',
                                   radius=0.1,
@@ -143,7 +143,7 @@ def generate_roommates_fame_votes(num_agents: int = None,
     return convert(votes)
 
 
-def generate_roommates_mallows_euclidean_votes(num_agents: int = None,
+def generate_mallows_euclidean_votes(num_agents: int = None,
                                                dim: int = 2,
                                                space='uniform',
                                                phi=0.5,

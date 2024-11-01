@@ -8,11 +8,10 @@ def generate_mallows_votes(*args, **kwargs):
     return ml.generate_mallows_votes(*args, **kwargs)
 
 
-def generate_roommates_norm_mallows_votes(num_agents: int = None,
-                                          normphi: float = 0.5,
-                                          weight: float = 0,
-                                          **kwargs):
-
+def generate_norm_mallows_votes(num_agents: int = None,
+                                normphi: float = 0.5,
+                                weight: float = 0,
+                                **kwargs):
     phi = ml.phi_from_normphi(num_agents, normphi=normphi)
 
     votes = generate_mallows_votes(num_agents, num_agents, phi=phi, weight=weight)
@@ -35,9 +34,11 @@ def mallows_votes(votes, phi):
     return votes
 
 
-def generate_roommates_malasym_votes(num_agents: int = None,
-                                     normphi=0.5,
-                                     **kwargs):
+def generate_malasym_votes(
+        num_agents: int = None,
+        normphi=0.5,
+        **_kwargs
+):
     """ Mallows on top of Asymmetric instance """
 
     votes = [list(range(num_agents)) for _ in range(num_agents)]
