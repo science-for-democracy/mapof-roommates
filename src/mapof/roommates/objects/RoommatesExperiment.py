@@ -78,9 +78,9 @@ class RoommatesExperiment(Experiment, ABC):
         if not os.path.exists(path):
             with open(path, 'w') as file_csv:
                 file_csv.write(
-                    "size;num_agents;culture_id;params;color;alpha;"
-                    "family_id;label;marker\n")
-                file_csv.write("3;10;ic;{};black;1;ic;Impartial Culture;o\n")
+                    "size;num_agents;culture_id;params;family_id;"
+                    "label;color;alpha;marker;ms;path;show\n"
+                )
 
     def import_matchings(self):
         matchings = {}
@@ -448,28 +448,3 @@ class RoommatesExperiment(Experiment, ABC):
 
         self.features[feature_id] = feature_dict
         return feature_dict
-
-    def create_structure(self) -> None:
-
-        dirs = ["experiments", "images", "trash"]
-        for dir in dirs:
-            if not os.path.isdir(dir):
-                os.mkdir(os.path.join(os.getcwd(), dir))
-
-        try:
-            os.mkdir(os.path.join(os.getcwd(), "election", self.experiment_id))
-            os.mkdir(os.path.join(os.getcwd(), "election", self.experiment_id, "distances"))
-            os.mkdir(os.path.join(os.getcwd(), "election", self.experiment_id, "features"))
-            os.mkdir(os.path.join(os.getcwd(), "election", self.experiment_id, "coordinates"))
-            os.mkdir(os.path.join(os.getcwd(), "election", self.experiment_id, "instances"))
-            os.mkdir(os.path.join(os.getcwd(), "election", self.experiment_id, "matrices"))
-
-            # PREPARE MAP.CSV FILE
-            path = os.path.join(os.getcwd(), "election", self.experiment_id, "map.csv")
-
-            with open(path, 'w') as file_csv:
-                file_csv.write(
-                    "size;num_agents;culture_id;params;color;alpha;family_id;label;marker;show\n")
-                file_csv.write("10;20;roommates_ic;{};black;1;IC;IC;o;process_id\n")
-        except:
-            pass

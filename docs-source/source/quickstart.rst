@@ -247,6 +247,16 @@ To generate a single Normalized Mallows instance with norm-ϕ = 0.5, we should t
     experiment = mapof.prepare_online_ordinal_experiment()
     experiment.add_family(culture_id='norm-mallows', size=10, normphi=0.5)
 
+
+You can also specify the name of you family using the 'family_id' argument.
+
+.. code-block:: python
+
+    experiment.add_family(culture_id='norm-mallows', size=10, normphi=0.5,
+                          family_id='Norm-Mallows')
+
+Then, the instances will be stored in the ``experiment.instances`` dictionary under the keys ``Norm-Mallows_0``, ``Norm-Mallows_2``, ... ,``Norm-Mallows_9``.
+
 Create Map of SR Instances
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -487,13 +497,14 @@ The controlling `map.csv` file usually consists of:
 - **num_agents**: Number of candidates
 - **culture_id**: Code of the culture
 - **params**: Dictionary with parameters of a given culture
+- **family_id**: Family ID
+- **label**: Label that will be printed in the legend
 - **color**: Color of the point(s) on the map
 - **alpha**: Transparency of the point(s)
 - **marker**: Marker of the point(s)
 - **ms**: Marker size
-- **label**: Label that will be printed in the legend
-- **family_id**: Family ID
-- **path**: Dictionary with parameters for generating a path of instances
+- **path**: Dictionary with parameters for generating a path of elections
+- **show**: If False, the culture will not be displayed on the map
 
 .. rubric:: Imports
 
@@ -511,3 +522,27 @@ For transparency, it is recommended to always define them.
                             embedding_id="kk")
 
 Regarding features, if they are precomputed, the program will import them while printing the map.
+
+Note that, if you will add new instance or families from the code, the map.csv file will be updated automatically.
+
+For example if you will run the following code:
+
+.. code-block:: python
+
+    experiment = mapof.prepare_offline_roommates_experiment(experiment_id='name_of_the_experiment')
+    experiment.add_family(culture_id='impartial', size=10,
+                                     num_agents=20,
+                                   color='green', marker='s', label='IC')
+    experiment.add_family(culture_id='urn', size=10,
+                                     num_agents=20,
+                                   alpha=0.1,
+                                   color='blue', marker='o', label='Urn')
+
+
+The map.csv file will look like this:
+
+.. code-block:: python
+
+    size;num_agents;culture_id;params;family_id;label;color;alpha;marker;ms;path;show
+    10;20;impartial;{};impartial_10_100;IC;green;1.0;x;20;{};True
+    10;20;urn;{};urn_10_100;Urn;blue;0.1;o;20;{};True

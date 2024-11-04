@@ -352,6 +352,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_attributes_votes"><code class="docutils literal notranslate"><span class="pre">generate_attributes_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_euclidean_votes"><code class="docutils literal notranslate"><span class="pre">generate_euclidean_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_expectation_votes"><code class="docutils literal notranslate"><span class="pre">generate_expectation_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_fame_votes"><code class="docutils literal notranslate"><span class="pre">generate_fame_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_reverse_euclidean_votes"><code class="docutils literal notranslate"><span class="pre">generate_reverse_euclidean_votes()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.get_rand"><code class="docutils literal notranslate"><span class="pre">get_rand()</span></code></a></li>
 </ul>
             </nav>
@@ -366,6 +371,119 @@ document.write(`
                   
   <section id="module-mapof.roommates.cultures.euclidean">
 <span id="euclidean"></span><h1>Euclidean<a class="headerlink" href="#module-mapof.roommates.cultures.euclidean" title="Link to this heading">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="mapof.roommates.cultures.euclidean.generate_attributes_votes">
+<span class="sig-name descname"><span class="pre">generate_attributes_votes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uniform'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/mapof/roommates/cultures/euclidean.html#generate_attributes_votes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.cultures.euclidean.generate_attributes_votes" title="Link to this definition">#</a></dt>
+<dd><p>Generate votes based on attributes model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_agents</strong> (<em>int</em>) – Number of agents.</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension of the space.</p></li>
+<li><p><strong>space</strong> (<em>str</em>) – Distribution of the agents.</p></li>
+<li><p><strong>_kwargs</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Votes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>list</em>[<em>list</em>[<em>int</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mapof.roommates.cultures.euclidean.generate_euclidean_votes">
+<span class="sig-name descname"><span class="pre">generate_euclidean_votes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uniform'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/mapof/roommates/cultures/euclidean.html#generate_euclidean_votes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.cultures.euclidean.generate_euclidean_votes" title="Link to this definition">#</a></dt>
+<dd><p>Generate votes based on Euclidean model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_agents</strong> (<em>int</em>) – Number of agents.</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension of the space.</p></li>
+<li><p><strong>space</strong> (<em>str</em>) – Distribution of the agents.</p></li>
+<li><p><strong>_kwargs</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Votes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>list</em>[<em>list</em>[<em>int</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mapof.roommates.cultures.euclidean.generate_expectation_votes">
+<span class="sig-name descname"><span class="pre">generate_expectation_votes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uniform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/mapof/roommates/cultures/euclidean.html#generate_expectation_votes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.cultures.euclidean.generate_expectation_votes" title="Link to this definition">#</a></dt>
+<dd><p>Generate votes based on reverse Euclidean model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_agents</strong> (<em>int</em>) – Number of agents.</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension of the space.</p></li>
+<li><p><strong>space</strong> (<em>str</em>) – Distribution of the agents.</p></li>
+<li><p><strong>std</strong> (<em>float</em>) – Standard deviation of the agents.</p></li>
+<li><p><strong>_kwargs</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Votes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>list</em>[<em>list</em>[<em>int</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mapof.roommates.cultures.euclidean.generate_fame_votes">
+<span class="sig-name descname"><span class="pre">generate_fame_votes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uniform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/mapof/roommates/cultures/euclidean.html#generate_fame_votes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.cultures.euclidean.generate_fame_votes" title="Link to this definition">#</a></dt>
+<dd><p>Generate votes based on fame model (also known as radius model).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_agents</strong> (<em>int</em>) – Number of agents.</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension of the space.</p></li>
+<li><p><strong>space</strong> (<em>str</em>) – Distribution of the agents.</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – Radius of the agents.</p></li>
+<li><p><strong>_kwargs</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Votes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>list</em>[<em>list</em>[<em>int</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mapof.roommates.cultures.euclidean.generate_reverse_euclidean_votes">
+<span class="sig-name descname"><span class="pre">generate_reverse_euclidean_votes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uniform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proportion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">_kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/mapof/roommates/cultures/euclidean.html#generate_reverse_euclidean_votes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.cultures.euclidean.generate_reverse_euclidean_votes" title="Link to this definition">#</a></dt>
+<dd><p>Generate votes based on expectation model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_agents</strong> (<em>int</em>) – Number of agents.</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension of the space.</p></li>
+<li><p><strong>space</strong> (<em>str</em>) – Distribution of the agents.</p></li>
+<li><p><strong>proportion</strong> (<em>float</em>) – Proportion of the agents that will have the reverse order.</p></li>
+<li><p><strong>_kwargs</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Votes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>list</em>[<em>list</em>[<em>int</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="mapof.roommates.cultures.euclidean.get_rand">
 <span class="sig-name descname"><span class="pre">get_rand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="../../_modules/mapof/roommates/cultures/euclidean.html#get_rand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapof.roommates.cultures.euclidean.get_rand" title="Link to this definition">#</a></dt>
@@ -419,6 +537,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_attributes_votes"><code class="docutils literal notranslate"><span class="pre">generate_attributes_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_euclidean_votes"><code class="docutils literal notranslate"><span class="pre">generate_euclidean_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_expectation_votes"><code class="docutils literal notranslate"><span class="pre">generate_expectation_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_fame_votes"><code class="docutils literal notranslate"><span class="pre">generate_fame_votes()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.generate_reverse_euclidean_votes"><code class="docutils literal notranslate"><span class="pre">generate_reverse_euclidean_votes()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapof.roommates.cultures.euclidean.get_rand"><code class="docutils literal notranslate"><span class="pre">get_rand()</span></code></a></li>
 </ul>
   </nav></div>

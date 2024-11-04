@@ -1,27 +1,34 @@
-import numpy as np
 import math
+
+import numpy as np
 from numpy import linalg
+
 from mapof.roommates.cultures._utils import convert
-from mapof.roommates.cultures.mallows import mallows_votes
-
-def get_range(params):
-    if params['p_dist'] == 'beta':
-        return np.random.beta(params['a'], params['b'])
-    elif params['p_dist'] == 'uniform':
-        return np.random.uniform(low=params['a'], high=params['b'])
 
 
-def weighted_l1(a1, a2, w):
-    total = 0
-    for i in range(len(a1)):
-        total += abs(a1[i] - a2[i]) * w[i]
-    return total
+def generate_attributes_votes(
+        num_agents: int = None,
+        dim: int = 2,
+        space: str = 'uniform',
+        **_kwargs) -> list[list[int]]:
+    """
+    Generate votes based on attributes model.
 
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        dim : int
+            Dimension of the space.
+        space : str
+            Distribution of the agents.
+        _kwargs
 
-def generate_attributes_votes(num_agents: int = None,
-                                        dim: int = 2,
-                                        space='uniform',
-                                        **kwargs):
+    Returns
+    -------
+        list[list[int]]
+            Votes
+    """
     name = f'{dim}d_{space}'
 
     agents_skills = np.array([get_rand(name) for _ in range(num_agents)])
@@ -37,16 +44,36 @@ def generate_attributes_votes(num_agents: int = None,
             if dim == 1:
                 distances[v][c] = abs(1. - agents_skills[c]) * agents_weights[v]
             else:
-                distances[v][c] = weighted_l1(ones, agents_skills[c], agents_weights[v])
+                distances[v][c] = _weighted_l1(ones, agents_skills[c], agents_weights[v])
         votes[v] = [x for _, x in sorted(zip(distances[v], votes[v]))]
 
     return convert(votes)
 
 
-def generate_euclidean_votes(num_agents: int = None,
-                                       dim: int = 2,
-                                       space='uniform',
-                                       **kwargs):
+def generate_euclidean_votes(
+        num_agents: int = None,
+        dim: int = 2,
+        space: str = 'uniform',
+        **_kwargs
+) -> list[list[int]]:
+    """
+    Generate votes based on Euclidean model.
+
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        dim : int
+            Dimension of the space.
+        space : str
+            Distribution of the agents.
+        _kwargs
+
+    Returns
+    -------
+        list[list[int]]
+            Votes
+    """
     name = f'{dim}d_{space}'
 
     agents = np.array([get_rand(name, i=i, num_agents=num_agents) for i in range(num_agents)])
@@ -63,11 +90,33 @@ def generate_euclidean_votes(num_agents: int = None,
     return convert(votes)
 
 
-def generate_reverse_euclidean_votes(num_agents: int = None,
-                                               dim: int = 2,
-                                               space='uniform',
-                                               proportion=0.5,
-                                               **kwargs):
+def generate_reverse_euclidean_votes(
+        num_agents: int = None,
+        dim: int = 2,
+        space: str = 'uniform',
+        proportion: float = 0.5,
+        **_kwargs
+) -> list[list[int]]:
+    """
+    Generate votes based on expectation model.
+
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        dim : int
+            Dimension of the space.
+        space : str
+            Distribution of the agents.
+        proportion : float
+            Proportion of the agents that will have the reverse order.
+        _kwargs
+
+    Returns
+    -------
+        list[list[int]]
+            Votes
+    """
     name = f'{dim}d_{space}'
 
     agents = np.array([get_rand(name, i=i, num_agents=num_agents) for i in range(num_agents)])
@@ -91,11 +140,33 @@ def generate_reverse_euclidean_votes(num_agents: int = None,
     return convert(votes)
 
 
-def generate_expectation_votes(num_agents: int = None,
-                                         dim: int = 2,
-                                         space='uniform',
-                                         std=0.1,
-                                         **kwargs):
+def generate_expectation_votes(
+        num_agents: int = None,
+        dim: int = 2,
+        space: str = 'uniform',
+        std: float = 0.1,
+        **_kwargs
+) -> list[list[int]]:
+    """
+    Generate votes based on reverse Euclidean model.
+
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        dim : int
+            Dimension of the space.
+        space : str
+            Distribution of the agents.
+        std : float
+            Standard deviation of the agents.
+        _kwargs
+
+    Returns
+    -------
+        list[list[int]]
+            Votes
+    """
     name = f'{dim}d_{space}'
 
     agents_reality = np.array([get_rand(name) for _ in range(num_agents)])
@@ -119,12 +190,33 @@ def generate_expectation_votes(num_agents: int = None,
     return convert(votes)
 
 
-def generate_fame_votes(num_agents: int = None,
-                                  dim: int = 2,
-                                  space='uniform',
-                                  radius=0.1,
-                                  **kwargs):
-    # Also known as radius model
+def generate_fame_votes(
+        num_agents: int = None,
+        dim: int = 2,
+        space: str = 'uniform',
+        radius: float = 0.1,
+        **_kwargs
+) -> list[list[int]]:
+    """
+    Generate votes based on fame model (also known as radius model).
+
+    Parameters
+    ----------
+        num_agents : int
+            Number of agents.
+        dim : int
+            Dimension of the space.
+        space : str
+            Distribution of the agents.
+        radius : float
+            Radius of the agents.
+        _kwargs
+
+    Returns
+    -------
+        list[list[int]]
+            Votes
+    """
 
     name = f'{dim}d_{space}'
 
@@ -143,11 +235,13 @@ def generate_fame_votes(num_agents: int = None,
     return convert(votes)
 
 
-def generate_mallows_euclidean_votes(num_agents: int = None,
-                                               dim: int = 2,
-                                               space='uniform',
-                                               phi=0.5,
-                                               **kwargs):
+def generate_mallows_euclidean_votes(
+        num_agents: int = None,
+        dim: int = 2,
+        space='uniform',
+        phi=0.5,
+        **_kwargs
+) -> list[list[int]]:
     name = f'{dim}d_{space}'
 
     agents = np.array([get_rand(name, i=i, num_agents=num_agents) for i in range(num_agents)])
@@ -242,3 +336,9 @@ def get_rand(model: str, i: int = 0, num_agents: int = 0) -> list:
         point = [0, 0]
     return point
 
+
+def _weighted_l1(a1, a2, w):
+    total = 0
+    for i in range(len(a1)):
+        total += abs(a1[i] - a2[i]) * w[i]
+    return total
