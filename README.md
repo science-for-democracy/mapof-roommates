@@ -1,3 +1,4 @@
+[![PyPI Status](https://img.shields.io/pypi/v/mapof-roommates.svg)](https://pypi.python.org/pypi/mapof-roommates)
 [![Tests (main)](https://github.com/science-for-democracy/mapof-roommates/actions/workflows/python-tests.yml/badge.svg?branch=main)](https://github.com/science-for-democracy/mapof-roommates/actions/workflows/python-tests.yml)
 [![codecov](https://codecov.io/gh/science-for-democracy/mapof-roommates/graph/badge.svg?token=LYGCNEW8Y7)](https://codecov.io/gh/science-for-democracy/mapof-roommates)
 
