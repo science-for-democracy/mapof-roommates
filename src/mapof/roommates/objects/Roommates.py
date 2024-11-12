@@ -29,12 +29,12 @@ class Roommates(Instance):
         self.retrospetive_vectors = None
         self.positionwise_vectors = None
 
-        if is_imported and experiment_id != 'virtual':
+        if is_imported and experiment_id is not None:
             try:
                 self.votes, self.num_agents, self.params, self.culture_id = \
                     imports.import_real_instance(self)
                 self.alpha = self.params['alpha']
-            except:
+            except Exception:
                 pass
 
     def get_retrospective_vectors(self):

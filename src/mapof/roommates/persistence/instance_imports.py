@@ -46,7 +46,7 @@ def import_real_instance(self, shift=False):
             quantity = int(line[0])
 
             for k in range(quantity):
-                print(k, votes)
+                # print(k, votes)
                 for el in range(num_candidates):
                     votes[it][el] = int(line[el + 1])
                 it += 1

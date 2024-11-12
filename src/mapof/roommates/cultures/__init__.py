@@ -7,6 +7,7 @@ import mapof.roommates.cultures.urn as urn
 import numpy as np
 
 registered_roommates_culture = {
+    'impartial': impartial.generate_ic_votes,
     'ic': impartial.generate_ic_votes,
     'id': impartial.generate_id_votes,
     'chaos': impartial.generate_chaos_votes,
