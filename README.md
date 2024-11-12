@@ -1,3 +1,4 @@
+[![PyPI Status](https://img.shields.io/pypi/v/mapof-roommates.svg)](https://pypi.python.org/pypi/mapof-roommates)
 [![Tests (main)](https://github.com/science-for-democracy/mapof-roommates/actions/workflows/python-tests.yml/badge.svg?branch=main)](https://github.com/science-for-democracy/mapof-roommates/actions/workflows/python-tests.yml)
 [![codecov](https://codecov.io/gh/science-for-democracy/mapof-roommates/graph/badge.svg?token=LYGCNEW8Y7)](https://codecov.io/gh/science-for-democracy/mapof-roommates)
 
@@ -16,6 +17,12 @@ in the console.
 
 For more complicated variants of installation, refer to the [readme of
 Mapof](https://github.com/science-for-democracy/mapof).
+
+
+# Documentation
+
+The complete documentation is available [here](https://science-for-democracy.github.io/mapof-roommates/).
+
 
 # Acknowledgments
 
