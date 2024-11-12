@@ -1,8 +1,9 @@
 from itertools import combinations
 
-import mapof.roommates.features.basic_features as basic
 import numpy as np
 from mapof.core.distances import l2
+
+import mapof.roommates.features.basic_features as basic
 
 registered_roommates_features = {
     'summed_rank_minimal_matching': basic.summed_rank_minimal_matching,
@@ -11,8 +12,6 @@ registered_roommates_features = {
     'num_of_bps_min_weight': basic.num_of_bps_maximumWeight,
     'avg_num_of_bps_for_rand_matching': basic.avg_num_of_bps_for_random_matching,
     'mutuality': basic.mutuality,
-    'dist_from_id_1': basic.dist_from_id_1,
-    'dist_from_id_2': basic.dist_from_id_2,
     'minimal_rank_maximizing_matching': basic.minimal_rank_maximizing_matching,
 }
 

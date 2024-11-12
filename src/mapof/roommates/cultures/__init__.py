@@ -27,6 +27,19 @@ registered_roommates_culture = {
 
 def generate_votes(culture_id: str = None, num_agents: int = None,
                    params: dict = None) -> list | np.ndarray:
+    """
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+         list[list[int]]
+            A list where each sublist represents an agent's preference list.
+            The ith list represents the preferences of the ith agents.
+
+
+    """
 
     if culture_id in registered_roommates_culture:
         return registered_roommates_culture.get(culture_id)(num_agents=num_agents, **params)

@@ -326,7 +326,7 @@ document.write(`
         <span class="n">instance</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pref</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">instance</span>
 
-<span class="k">def</span> <span class="nf">number_blockingPairs</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span><span class="n">matching</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">number_blocking_pairs</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span><span class="n">matching</span><span class="p">):</span>
     <span class="n">bps</span><span class="o">=</span><span class="mi">0</span>
     <span class="n">num_agents</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_agents</span><span class="p">):</span>
@@ -443,7 +443,7 @@ document.write(`
 
 <span class="k">def</span> <span class="nf">summed_rank_maximal_matching</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
     <span class="n">val</span><span class="p">,</span><span class="n">matching</span><span class="o">=</span> <span class="n">rank_matching</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">number_blockingPairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">number_blocking_pairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR IN summed_rank_maximal_matching&#39;</span><span class="p">)</span>
         <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">val</span>
@@ -451,14 +451,14 @@ document.write(`
 
 <span class="k">def</span> <span class="nf">summed_rank_minimal_matching</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
     <span class="n">val</span><span class="p">,</span><span class="n">matching</span><span class="o">=</span> <span class="n">rank_matching</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">number_blockingPairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">number_blocking_pairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR IN summed_rank_minimal_matching&#39;</span><span class="p">)</span>
         <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">val</span>
 
 <span class="k">def</span> <span class="nf">minimal_rank_maximizing_matching</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
     <span class="n">val</span><span class="p">,</span><span class="n">matching</span><span class="o">=</span><span class="n">rank_matching</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">number_blockingPairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">number_blocking_pairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR IN minimal_rank_maximizing_matching&#39;</span><span class="p">)</span>
         <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">val</span>
@@ -475,7 +475,7 @@ document.write(`
         <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">matching</span><span class="p">:</span>
             <span class="n">matching_dict</span><span class="p">[</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">=</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">matching_dict</span><span class="p">[</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">bps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number_blockingPairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching_dict</span><span class="p">))</span>
+        <span class="n">bps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number_blocking_pairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching_dict</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bps</span><span class="p">),</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">bps</span><span class="p">)</span>
 
 
@@ -491,7 +491,7 @@ document.write(`
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">matching</span><span class="p">:</span>
         <span class="n">matching_dict</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">matching_dict</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">number_blockingPairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching_dict</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">number_blocking_pairs</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">votes</span><span class="p">,</span><span class="n">matching_dict</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="mutuality">

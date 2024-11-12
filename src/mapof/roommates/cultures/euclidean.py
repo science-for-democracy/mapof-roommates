@@ -3,7 +3,8 @@ import math
 import numpy as np
 from numpy import linalg
 
-from mapof.roommates.cultures._utils import convert
+from mapof.roommates.cultures.mallows import mallows_votes
+from mapof.roommates.cultures.utils import convert
 
 
 def generate_attributes_votes(

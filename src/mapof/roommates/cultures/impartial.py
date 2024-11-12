@@ -3,7 +3,7 @@ import logging
 import numpy as np
 from mapof.core.utils import *
 
-from mapof.roommates.cultures._utils import convert
+from mapof.roommates.cultures.utils import convert
 
 
 def generate_ic_votes(num_agents: int = None, **kwargs) -> list[list[int]]:

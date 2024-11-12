@@ -1,5 +1,6 @@
 import numpy as np
-from mapof.roommates.cultures._utils import convert
+
+from mapof.roommates.cultures.utils import convert
 
 
 def generate_urn_votes(
