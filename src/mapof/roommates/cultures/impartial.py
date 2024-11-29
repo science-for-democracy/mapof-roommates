@@ -5,16 +5,20 @@ from mapof.core.utils import *
 
 from mapof.roommates.cultures.utils import convert
 
+from prefsampling.ordinal import (
+    impartial,
+    identity,
+)
 
-def generate_ic_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+def generate_impartial_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
     """
-    Generates a list of votes based on the Impartial Culture model.
+    Generates a list of votes based on the impartial culture model.
 
     Parameters
     ----------
         num_agents : int
             Number of agents.
-        **kwargs
+        **_kwargs
             Additional parameters for customization.
 
     Returns
@@ -22,17 +26,17 @@ def generate_ic_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
         list[list[int]]
             A list of votes.
     """
-    votes = [list(np.random.permutation(num_agents)) for _ in range(num_agents)]
+    votes = impartial(num_agents, num_agents)
     return convert(votes)
 
 
 def generate_group_ic_votes(
         num_agents: int = None,
         proportion=0.5,
-        **kwargs
+        **_kwargs
 ) -> list[list[int]]:
     """
-    Generates a list of votes based on the Group Impartial Culture model with two groups.
+    Generates a list of votes based on the group impartial culture model with two groups.
 
     Parameters
     ----------
@@ -40,7 +44,7 @@ def generate_group_ic_votes(
             Number of agents.
         proportion : float, optional
             Proportion of agents in the first group. Default is 0.5.
-        **kwargs
+        **_kwargs
             Additional parameters for customization.
 
     Returns
@@ -60,15 +64,15 @@ def generate_group_ic_votes(
     return convert(votes)
 
 
-def generate_id_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
+def generate_identity_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
     """
-    Generates a list of votes based on the Identity model.
+    Generates a list of votes based on the identity model.
 
     Parameters
     ----------
         num_agents : int
             Number of agents.
-        **kwargs
+        **_kwargs
             Additional parameters for customization.
 
     Returns
@@ -76,7 +80,7 @@ def generate_id_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
         list[list[int]]
             A list of votes.
     """
-    votes = [list(range(num_agents)) for _ in range(num_agents)]
+    votes = identity(num_agents, num_agents)
     return convert(votes)
 
 
@@ -88,7 +92,7 @@ def generate_asymmetric_votes(num_agents: int = None, **_kwargs) -> list[list[in
     ----------
         num_agents : int
             Number of agents.
-        **kwargs
+        **_kwargs
             Additional parameters for customization.
 
     Returns
@@ -109,7 +113,7 @@ def generate_symmetric_votes(num_agents: int = None, **_kwargs) -> list[list[int
     ----------
         num_agents : int
             Number of agents.
-        **kwargs
+        **_kwargs
             Additional parameters for customization.
 
     Returns

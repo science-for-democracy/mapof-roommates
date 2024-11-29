@@ -1,7 +1,9 @@
+import logging
 import math
 
 import numpy as np
-from numpy import linalg
+from prefsampling.core.euclidean import EuclideanSpace
+from prefsampling.core.euclidean import euclidean_space_to_sampler
 
 from mapof.roommates.cultures.mallows import mallows_votes
 from mapof.roommates.cultures.utils import convert
@@ -9,8 +11,8 @@ from mapof.roommates.cultures.utils import convert
 
 def generate_attributes_votes(
         num_agents: int = None,
-        dim: int = 2,
-        space: str = 'uniform',
+        num_dimensions: int = 2,
+        space: str = None,
         **_kwargs) -> list[list[int]]:
     """
     Generate votes based on attributes model.
@@ -19,7 +21,7 @@ def generate_attributes_votes(
     ----------
         num_agents : int
             Number of agents.
-        dim : int
+        num_dimensions : int
             Dimension of the space.
         space : str
             Distribution of the agents.
@@ -30,19 +32,23 @@ def generate_attributes_votes(
         list[list[int]]
             Votes
     """
-    name = f'{dim}d_{space}'
+    if space is None:
+        space = EuclideanSpace.UNIFORM_CUBE
 
-    agents_skills = np.array([get_rand(name) for _ in range(num_agents)])
-    agents_weights = np.array([get_rand(name) for _ in range(num_agents)])
+    sampler, sampler_params = euclidean_space_to_sampler(space, num_dimensions)
+    sampler_params['num_points'] = num_agents
+
+    agents_skills = np.array(sampler(**sampler_params))
+    agents_weights = np.array(sampler(**sampler_params))
 
     votes = np.zeros([num_agents, num_agents], dtype=int)
     distances = np.zeros([num_agents, num_agents], dtype=float)
-    ones = np.ones([dim], dtype=float)
+    ones = np.ones([num_dimensions], dtype=float)
 
     for v in range(num_agents):
         for c in range(num_agents):
             votes[v][c] = c
-            if dim == 1:
+            if num_dimensions == 1:
                 distances[v][c] = abs(1. - agents_skills[c]) * agents_weights[v]
             else:
                 distances[v][c] = _weighted_l1(ones, agents_skills[c], agents_weights[v])
@@ -53,8 +59,8 @@ def generate_attributes_votes(
 
 def generate_euclidean_votes(
         num_agents: int = None,
-        dim: int = 2,
-        space: str = 'uniform',
+        num_dimensions: int = 2,
+        space: str = None,
         **_kwargs
 ) -> list[list[int]]:
     """
@@ -64,20 +70,26 @@ def generate_euclidean_votes(
     ----------
         num_agents : int
             Number of agents.
-        dim : int
+        num_dimensions : int
             Dimension of the space.
         space : str
             Distribution of the agents.
-        _kwargs
+        **_kwargs
+            Additional parameters for customization.
 
     Returns
     -------
         list[list[int]]
             Votes
     """
-    name = f'{dim}d_{space}'
 
-    agents = np.array([get_rand(name, i=i, num_agents=num_agents) for i in range(num_agents)])
+    if space is None:
+        space = EuclideanSpace.UNIFORM_CUBE
+
+    sampler, sampler_params = euclidean_space_to_sampler(space, num_dimensions)
+    sampler_params['num_points'] = num_agents
+
+    agents = np.array(sampler(**sampler_params))
 
     votes = np.zeros([num_agents, num_agents], dtype=int)
     distances = np.zeros([num_agents, num_agents], dtype=float)
@@ -93,8 +105,8 @@ def generate_euclidean_votes(
 
 def generate_reverse_euclidean_votes(
         num_agents: int = None,
-        dim: int = 2,
-        space: str = 'uniform',
+        num_dimensions: int = 2,
+        space: str = None,
         proportion: float = 0.5,
         **_kwargs
 ) -> list[list[int]]:
@@ -105,22 +117,28 @@ def generate_reverse_euclidean_votes(
     ----------
         num_agents : int
             Number of agents.
-        dim : int
+        num_dimensions : int
             Dimension of the space.
         space : str
             Distribution of the agents.
         proportion : float
             Proportion of the agents that will have the reverse order.
-        _kwargs
+        **_kwargs
+            Additional parameters for customization.
 
     Returns
     -------
         list[list[int]]
             Votes
     """
-    name = f'{dim}d_{space}'
 
-    agents = np.array([get_rand(name, i=i, num_agents=num_agents) for i in range(num_agents)])
+    if space is None:
+        space = EuclideanSpace.UNIFORM_CUBE
+
+    sampler, sampler_params = euclidean_space_to_sampler(space, num_dimensions)
+    sampler_params['num_points'] = num_agents
+
+    agents = np.array(sampler(**sampler_params))
 
     votes = np.zeros([num_agents, num_agents], dtype=int)
     distances = np.zeros([num_agents, num_agents], dtype=float)
@@ -130,6 +148,7 @@ def generate_reverse_euclidean_votes(
             votes[v][c] = c
             distances[v][c] = np.linalg.norm(agents[v] - agents[c])
         votes[v] = [x for _, x in sorted(zip(distances[v], votes[v]))]
+
 
     p = proportion
 
@@ -143,8 +162,8 @@ def generate_reverse_euclidean_votes(
 
 def generate_expectation_votes(
         num_agents: int = None,
-        dim: int = 2,
-        space: str = 'uniform',
+        num_dimensions: int = 2,
+        space: str = None,
         std: float = 0.1,
         **_kwargs
 ) -> list[list[int]]:
@@ -155,7 +174,7 @@ def generate_expectation_votes(
     ----------
         num_agents : int
             Number of agents.
-        dim : int
+        num_dimensions : int
             Dimension of the space.
         space : str
             Distribution of the agents.
@@ -168,9 +187,14 @@ def generate_expectation_votes(
         list[list[int]]
             Votes
     """
-    name = f'{dim}d_{space}'
 
-    agents_reality = np.array([get_rand(name) for _ in range(num_agents)])
+    if space is None:
+        space = EuclideanSpace.UNIFORM_CUBE
+
+    sampler, sampler_params = euclidean_space_to_sampler(space, num_dimensions)
+    sampler_params['num_points'] = num_agents
+
+    agents_reality = np.array(sampler(**sampler_params))
     agents_wishes = np.zeros([num_agents, 2])
 
     for v in range(num_agents):
@@ -193,8 +217,8 @@ def generate_expectation_votes(
 
 def generate_fame_votes(
         num_agents: int = None,
-        dim: int = 2,
-        space: str = 'uniform',
+        num_dimensions: int = 2,
+        space: str = None,
         radius: float = 0.1,
         **_kwargs
 ) -> list[list[int]]:
@@ -205,7 +229,7 @@ def generate_fame_votes(
     ----------
         num_agents : int
             Number of agents.
-        dim : int
+        num_dimensions : int
             Dimension of the space.
         space : str
             Distribution of the agents.
@@ -219,9 +243,13 @@ def generate_fame_votes(
             Votes
     """
 
-    name = f'{dim}d_{space}'
+    if space is None:
+        space = EuclideanSpace.UNIFORM_CUBE
 
-    agents = np.array([get_rand(name) for _ in range(num_agents)])
+    sampler, sampler_params = euclidean_space_to_sampler(space, num_dimensions)
+    sampler_params['num_points'] = num_agents
+
+    agents = np.array(sampler(**sampler_params))
     votes = np.zeros([num_agents, num_agents], dtype=int)
     distances = np.zeros([num_agents, num_agents], dtype=float)
     rays = np.array([np.random.uniform(0, radius) for _ in range(num_agents)])
@@ -238,14 +266,19 @@ def generate_fame_votes(
 
 def generate_mallows_euclidean_votes(
         num_agents: int = None,
-        dim: int = 2,
-        space='uniform',
+        num_dimensions: int = 2,
+        space=None,
         phi=0.5,
         **_kwargs
 ) -> list[list[int]]:
-    name = f'{dim}d_{space}'
 
-    agents = np.array([get_rand(name, i=i, num_agents=num_agents) for i in range(num_agents)])
+    if space is None:
+        space = EuclideanSpace.UNIFORM_CUBE
+
+    sampler, sampler_params = euclidean_space_to_sampler(space, num_dimensions)
+    sampler_params['num_points'] = num_agents
+
+    agents = np.array(sampler(**sampler_params))
 
     votes = np.zeros([num_agents, num_agents], dtype=int)
     distances = np.zeros([num_agents, num_agents], dtype=float)
@@ -259,83 +292,6 @@ def generate_mallows_euclidean_votes(
     votes = mallows_votes(votes, phi)
 
     return convert(votes)
-
-
-####################################################
-### UPDATE THIS TO MATCH THE RESAMPLING APPROACH ###
-def get_rand(model: str, i: int = 0, num_agents: int = 0) -> list:
-    """ generate random values"""
-
-    point = [0]
-    if model in {"1d_uniform", "1d_interval"}:
-        return np.random.rand()
-    elif model in {'1d_asymmetric'}:
-        if np.random.rand() < 0.3:
-            return np.random.normal(loc=0.25, scale=0.15, size=1)
-        else:
-            return np.random.normal(loc=0.75, scale=0.15, size=1)
-    elif model in {"1d_gaussian"}:
-        point = np.random.normal(0.5, 0.15)
-        while point > 1 or point < 0:
-            point = np.random.normal(0.5, 0.15)
-    # elif model == "1d_one_sided_triangle":
-    #     point = np.random.uniform(0, 1) ** 0.5
-    # elif model == "1d_full_triangle":
-    #     point = np.random.choice(
-    #         [np.random.uniform(0, 1) ** 0.5, 2 - np.random.uniform(0, 1) ** 0.5])
-    # elif model == "1d_two_party":
-    #     point = np.random.choice([np.random.uniform(0, 1), np.random.uniform(2, 3)])
-    elif model in {"2d_disc"}:
-        phi = 2.0 * 180.0 * np.random.random()
-        radius = math.sqrt(np.random.random()) * 0.5
-        point = [0.5 + radius * math.cos(phi), 0.5 + radius * math.sin(phi)]
-    elif model in {"2d_square", "2d_uniform"}:
-        point = [np.random.random(), np.random.random()]
-    # elif model in {'2d_asymmetric'}:
-    #     if np.random.rand() < 0.3:
-    #         return np.random.normal(loc=0.25, scale=0.15, size=2)
-    #     else:
-    #         return np.random.normal(loc=0.75, scale=0.15, size=2)
-    # elif model == "2d_sphere":
-    #     alpha = 2 * math.pi * np.random.random()
-    #     x = 1. * math.cos(alpha)
-    #     y = 1. * math.sin(alpha)
-    #     point = [x, y]
-    # elif model in ["2d_gaussian"]:
-    #     point = [np.random.normal(0.5, 0.15), np.random.normal(0.5, 0.15)]
-    #     while np.linalg.norm(point - np.array([0.5, 0.5])) > 0.5:
-    #         point = [np.random.normal(0.5, 0.15), np.random.normal(0.5, 0.15)]
-    # elif model in ["3d_cube", "3d_uniform"]:
-    #     point = [np.random.random(), np.random.random(), np.random.random()]
-    # elif model in ["5d_uniform"]:
-    #     dim = 5
-    #     point = [np.random.random() for _ in range(dim)]
-    # elif model in ["10d_uniform"]:
-    #     dim = 10
-    #     point = [np.random.random() for _ in range(dim)]
-    # elif model in {'3d_asymmetric'}:
-    #     if np.random.rand() < 0.3:
-    #         return np.random.normal(loc=0.25, scale=0.15, size=3)
-    #     else:
-    #         return np.random.normal(loc=0.75, scale=0.15, size=3)
-    # elif model in ['3d_gaussian']:
-    #     point = [np.random.normal(0.5, 0.15),
-    #              np.random.normal(0.5, 0.15),
-    #              np.random.normal(0.5, 0.15)]
-    #     while np.linalg.norm(point - np.array([0.5, 0.5, 0.5])) > 0.5:
-    #         point = [np.random.normal(0.5, 0.15),
-    #                  np.random.normal(0.5, 0.15),
-    #                  np.random.normal(0.5, 0.15)]
-    # elif model == "4d_cube":
-    #     dim = 4
-    #     point = [np.random.random() for _ in range(dim)]
-    # elif model == "5d_cube":
-    #     dim = 5
-    #     point = [np.random.random() for _ in range(dim)]
-    else:
-        print('unknown culture_id', model)
-        point = [0, 0]
-    return point
 
 
 def _weighted_l1(a1, a2, w):

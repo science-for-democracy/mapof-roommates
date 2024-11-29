@@ -7,9 +7,8 @@ import mapof.roommates.cultures.urn as urn
 import numpy as np
 
 registered_roommates_culture = {
-    'impartial': impartial.generate_ic_votes,
-    'ic': impartial.generate_ic_votes,
-    'id': impartial.generate_id_votes,
+    'impartial': impartial.generate_impartial_votes,
+    'identity': impartial.generate_identity_votes, # deprecated names
     'chaos': impartial.generate_chaos_votes,
     'symmetric': impartial.generate_symmetric_votes,
     'asymmetric': impartial.generate_asymmetric_votes,
@@ -23,6 +22,9 @@ registered_roommates_culture = {
     'norm-mallows': mallows.generate_norm_mallows_votes,
     'mallows_euclidean': euclidean.generate_mallows_euclidean_votes,
     'malasym': mallows.generate_malasym_votes,
+
+    'ic': impartial.generate_impartial_votes, # deprecated names
+    'id': impartial.generate_identity_votes, # deprecated names
 }
 
 

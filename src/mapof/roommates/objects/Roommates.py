@@ -89,18 +89,18 @@ class Roommates(Instance):
 
         if self.culture_id == 'roommates_norm-mallows' and 'norm-phi' not in params:
             params['norm-phi'] = np.random.rand()
-            params['alpha'] = params['norm-phi']
+            # params['alpha'] = params['norm-phi']
 
         elif self.culture_id == 'roommates_urn' and 'alpha' not in params:
             params['alpha'] = np.random.rand()
 
-        elif 'alpha' not in params:
-            params['alpha'] = 1
+        # elif 'alpha' not in params:
+        #     params['alpha'] = 1
 
         if 'variable' in params:
             params['alpha'] = params[params['variable']]
 
-        self.alpha = params['alpha']
+        # self.alpha = params['alpha']
 
         self.votes = generate_votes(culture_id=self.culture_id,
                                     num_agents=self.num_agents,

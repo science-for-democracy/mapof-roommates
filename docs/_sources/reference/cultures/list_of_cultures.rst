@@ -11,7 +11,7 @@ List of Cultures
    * - culture_id
      - Implementation
    * - ``ic``
-     - :py:func:`~mapof.roommates.cultures.impartial.generate_ic_votes`
+     - :py:func:`~mapof.roommates.cultures.impartial.generate_impartial_votes`
    * - ``id``
      - :py:func:`~mapof.roommates.cultures.impartial.generate_id_votes`
    * - ``symmetric``
