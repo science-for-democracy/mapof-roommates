@@ -2,12 +2,13 @@ import mapof.core.features.mallows as ml
 from mapof.core.utils import *
 
 from mapof.roommates.cultures.utils import convert
-
+from mapof.roommates.cultures.register import register_roommates_culture
 
 def generate_mallows_votes(*args, **kwargs):
     return ml.generate_mallows_votes(*args, **kwargs)
 
 
+@register_roommates_culture('norm_mallows')
 def generate_norm_mallows_votes(num_agents: int = None,
                                 normphi: float = 0.5,
                                 weight: float = 0,
@@ -33,7 +34,7 @@ def mallows_votes(votes, phi):
         votes[i] = mallows_vote(votes[i], phi)
     return votes
 
-
+@register_roommates_culture('malasym')
 def generate_malasym_votes(
         num_agents: int = None,
         normphi=0.5,

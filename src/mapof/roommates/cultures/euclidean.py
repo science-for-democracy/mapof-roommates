@@ -8,7 +8,10 @@ from prefsampling.core.euclidean import euclidean_space_to_sampler
 from mapof.roommates.cultures.mallows import mallows_votes
 from mapof.roommates.cultures.utils import convert
 
+from mapof.roommates.cultures.register import register_roommates_culture
 
+
+@register_roommates_culture('attributes')
 def generate_attributes_votes(
         num_agents: int = None,
         num_dimensions: int = 2,
@@ -57,6 +60,7 @@ def generate_attributes_votes(
     return convert(votes)
 
 
+@register_roommates_culture('euclidean')
 def generate_euclidean_votes(
         num_agents: int = None,
         num_dimensions: int = 2,
@@ -103,6 +107,7 @@ def generate_euclidean_votes(
     return convert(votes)
 
 
+@register_roommates_culture('reverse_euclidean')
 def generate_reverse_euclidean_votes(
         num_agents: int = None,
         num_dimensions: int = 2,
@@ -160,6 +165,7 @@ def generate_reverse_euclidean_votes(
     return convert(votes)
 
 
+@register_roommates_culture('expectation')
 def generate_expectation_votes(
         num_agents: int = None,
         num_dimensions: int = 2,
@@ -215,6 +221,7 @@ def generate_expectation_votes(
     return convert(votes)
 
 
+@register_roommates_culture('fame')
 def generate_fame_votes(
         num_agents: int = None,
         num_dimensions: int = 2,
@@ -264,6 +271,7 @@ def generate_fame_votes(
     return convert(votes)
 
 
+@register_roommates_culture('mallows_euclidean')
 def generate_mallows_euclidean_votes(
         num_agents: int = None,
         num_dimensions: int = 2,

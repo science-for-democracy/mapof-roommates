@@ -5,11 +5,15 @@ from mapof.core.utils import *
 
 from mapof.roommates.cultures.utils import convert
 
+from mapof.roommates.cultures.register import register_roommates_culture
+
 from prefsampling.ordinal import (
     impartial,
     identity,
 )
 
+
+@register_roommates_culture('impartial')
 def generate_impartial_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
     """
     Generates a list of votes based on the impartial culture model.
@@ -30,7 +34,8 @@ def generate_impartial_votes(num_agents: int = None, **_kwargs) -> list[list[int
     return convert(votes)
 
 
-def generate_group_ic_votes(
+@register_roommates_culture('group_impartial')
+def generate_group_impartial_votes(
         num_agents: int = None,
         proportion=0.5,
         **_kwargs
@@ -64,6 +69,7 @@ def generate_group_ic_votes(
     return convert(votes)
 
 
+@register_roommates_culture('identity')
 def generate_identity_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
     """
     Generates a list of votes based on the identity model.
@@ -84,6 +90,7 @@ def generate_identity_votes(num_agents: int = None, **_kwargs) -> list[list[int]
     return convert(votes)
 
 
+@register_roommates_culture('asymmetric')
 def generate_asymmetric_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
     """
     Generates a list of votes based on the Asymmetric model.
@@ -105,6 +112,7 @@ def generate_asymmetric_votes(num_agents: int = None, **_kwargs) -> list[list[in
     return convert(votes)
 
 
+@register_roommates_culture('symmetric')
 def generate_symmetric_votes(num_agents: int = None, **_kwargs) -> list[list[int]]:
     """
     Generates a matrix of votes based on the Symmetric model.
@@ -153,6 +161,7 @@ def generate_symmetric_votes(num_agents: int = None, **_kwargs) -> list[list[int
     return votes.tolist()
 
 
+@register_roommates_culture('chaos')
 def generate_chaos_votes(num_agents: int = None, **kwargs) -> list[list[int]]:
     """
     Generates a matrix of votes based on the Chaos model.

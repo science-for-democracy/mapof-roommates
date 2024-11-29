@@ -5,8 +5,8 @@ import pytest
 import mapof.roommates as roommates
 
 registered_roommates_cultures_to_test = {
-    'ic',
-    'id',
+    'impartial',
+    'identity',
     'chaos',
     'symmetric',
     'asymmetric',
@@ -16,8 +16,8 @@ registered_roommates_cultures_to_test = {
     'attributes',
     'euclidean',
     'reverse_euclidean',
-    'group_ic',
-    'norm-mallows',
+    'group_impartial',
+    'norm_mallows',
     'mallows_euclidean',
     'malasym'
 }
