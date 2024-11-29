@@ -1,8 +1,9 @@
 from mapof.core.matchings import *
 
 from mapof.roommates.objects.Roommates import Roommates
+from mapof.roommates.distances.register import register_roommates_distance
 
-
+@register_roommates_distance('mutual_attraction')
 def compute_retrospective_distance(instance_1, instance_2, inner_distance) -> (float, list):
     """
     Computes the retrospective distance between two Roommates instances.
@@ -23,7 +24,7 @@ def compute_retrospective_distance(instance_1, instance_2, inner_distance) -> (f
     cost_table = get_matching_cost_retrospective(instance_1, instance_2, inner_distance)
     return solve_matching_vectors(cost_table)
 
-
+@register_roommates_distance('positionwise')
 def compute_positionwise_distance(instance_1, instance_2, inner_distance) -> (float, list):
     """
     Computes the positionwise distance between two Roommates instances.

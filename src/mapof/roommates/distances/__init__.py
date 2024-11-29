@@ -4,11 +4,8 @@ from mapof.core.distances import extract_distance_id
 
 from mapof.roommates.distances import fast_distances as mrd
 from mapof.roommates.objects.Roommates import Roommates
+from mapof.roommates.distances.register import registered_roommates_distances
 
-registered_roommates_distances = {
-    'mutual_attraction': mrd.compute_retrospective_distance,
-    'positionwise': mrd.compute_positionwise_distance,
-}
 
 
 def get_distance(election_1: Roommates,
