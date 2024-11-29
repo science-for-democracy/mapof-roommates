@@ -5,15 +5,7 @@ from mapof.core.distances import l2
 
 import mapof.roommates.features.basic_features as basic
 
-registered_roommates_features = {
-    'summed_rank_minimal_matching': basic.summed_rank_minimal_matching,
-    'summed_rank_maximal_matching': basic.summed_rank_maximal_matching,
-    'min_num_bps_matching': basic.min_num_bps_matching,
-    'num_of_bps_min_weight': basic.num_of_bps_maximumWeight,
-    'avg_num_of_bps_for_rand_matching': basic.avg_num_of_bps_for_random_matching,
-    'mutuality': basic.mutuality,
-    'minimal_rank_maximizing_matching': basic.minimal_rank_maximizing_matching,
-}
+from mapof.roommates.features.register import registered_roommates_features
 
 
 def get_local_feature(feature_id):

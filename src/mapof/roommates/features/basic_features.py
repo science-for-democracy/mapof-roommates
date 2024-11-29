@@ -1,15 +1,13 @@
-try:
-    import gurobipy as gp
-    from gurobipy import GRB
-except Exception:
-    pass
-
 import statistics
 import sys
 from random import shuffle
 
+import gurobipy as gp
 import networkx as nx
+from gurobipy import GRB
 from matching.games import StableRoommates
+
+from mapof.roommates.features.register import register_roommates_feature
 
 sys.setrecursionlimit(10000)
 # warnings.filterwarnings("error")
@@ -166,6 +164,7 @@ def rank_matching(
     return int(m.objVal), matching
 
 
+@register_roommates_feature('min_num_bps_matching')
 def min_num_bps_matching(instance) -> int:
     """
     Computes a matching with the minimum number of blocking pairs for a given instance.
@@ -219,6 +218,7 @@ def min_num_bps_matching(instance) -> int:
     return int(m.objVal)
 
 
+@register_roommates_feature('summed_rank_maximal_matching')
 def summed_rank_maximal_matching(instance) -> int:
     """
     Computes a stable matching with the maximal summed rank agents assign to their partner.
@@ -244,6 +244,7 @@ def summed_rank_maximal_matching(instance) -> int:
     return val
 
 
+@register_roommates_feature('summed_rank_minimal_matching')
 def summed_rank_minimal_matching(instance) -> int:
     """
     Computes a stable matching with the minimum summed rank agents assign to their partner.
@@ -269,6 +270,7 @@ def summed_rank_minimal_matching(instance) -> int:
     return val
 
 
+@register_roommates_feature('minimal_rank_maximizing_matching')
 def minimal_rank_maximizing_matching(instance) -> int:
     """
     Computes a stable matching minimizing the maximum rank an agent assigns to their partner in the matching
@@ -294,6 +296,7 @@ def minimal_rank_maximizing_matching(instance) -> int:
     return val
 
 
+@register_roommates_feature('avg_num_of_bps_for_rand_matching')
 def avg_num_of_bps_for_random_matching(instance, iterations: int = 100) -> tuple[
     float, float]:
     """
@@ -329,6 +332,7 @@ def avg_num_of_bps_for_random_matching(instance, iterations: int = 100) -> tuple
     return statistics.mean(bps), statistics.stdev(bps)
 
 
+@register_roommates_feature('num_of_bps_min_weight')
 def num_of_bps_maximumWeight(instance) -> int:
     """
     Computes the number of blocking pairs for a (not necessarily stable) matching minimzing the summed rank agents have for their partner.
@@ -365,6 +369,7 @@ def num_of_bps_maximumWeight(instance) -> int:
     return number_blocking_pairs(instance.votes, matching_dict)
 
 
+@register_roommates_feature('mutuality')
 def mutuality(instance) -> int:
     """
     Computes the mutuality score of a stable roommates instance.

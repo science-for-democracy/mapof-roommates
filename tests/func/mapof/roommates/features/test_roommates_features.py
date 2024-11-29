@@ -56,3 +56,5 @@ class TestFeatures:
     instance.votes = instance_votes
 
     instance.compute_feature(feature_id)
+
+    assert instance.features[feature_id] is not None
