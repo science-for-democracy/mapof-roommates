@@ -1,12 +1,13 @@
 import numpy as np
 
 from mapof.roommates.cultures.utils import convert
+from mapof.roommates.cultures.register import register_roommates_culture
 
-
+@register_roommates_culture('urn')
 def generate_urn_votes(
         num_agents: int = None,
         alpha: int = 0.1,
-        **kwargs
+        **_kwargs
 ) -> list[list[int]]:
     """
     Generates a list of votes based on the urn model.
@@ -17,7 +18,7 @@ def generate_urn_votes(
             Number of agents.
         alpha : float, optional
             Parameter for the urn model. Default is 0.1.
-        **kwargs
+        **_kwargs
             Additional parameters for customization.
 
     Returns

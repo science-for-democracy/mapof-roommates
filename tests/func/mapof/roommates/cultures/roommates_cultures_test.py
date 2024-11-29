@@ -33,3 +33,5 @@ class TestCultures:
                                                      num_agents=num_agents)
 
         assert instance.num_agents == num_agents
+        assert len(instance.votes) == num_agents
+        assert len(instance.votes[0]) == num_agents-1
