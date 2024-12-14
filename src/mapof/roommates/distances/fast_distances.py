@@ -4,9 +4,9 @@ from mapof.roommates.objects.Roommates import Roommates
 from mapof.roommates.distances.register import register_roommates_distance
 
 @register_roommates_distance('mutual_attraction')
-def compute_retrospective_distance(instance_1, instance_2, inner_distance) -> (float, list):
+def compute_mutual_attraction_distance(instance_1, instance_2, inner_distance) -> (float, list):
     """
-    Computes the retrospective distance between two Roommates instances.
+    Computes the mutual attraction distance between two Roommates instances.
 
     Parameters
     ----------

@@ -7,7 +7,6 @@ from mapof.roommates.objects.Roommates import Roommates
 from mapof.roommates.distances.register import registered_roommates_distances
 
 
-
 def get_distance(election_1: Roommates,
                  election_2: Roommates,
                  distance_id: str = None

@@ -297,7 +297,7 @@ def minimal_rank_maximizing_matching(instance) -> int:
 
 
 @register_roommates_feature('avg_num_of_bps_for_rand_matching')
-def avg_num_of_bps_for_random_matching(instance, iterations: int = 100) -> tuple[
+def avg_num_of_bps_for_rand_matching(instance, iterations: int = 100) -> tuple[
     float, float]:
     """
     Approximates the average number of blocking pairs for a random perfect matching.
@@ -333,7 +333,7 @@ def avg_num_of_bps_for_random_matching(instance, iterations: int = 100) -> tuple
 
 
 @register_roommates_feature('num_of_bps_min_weight')
-def num_of_bps_maximumWeight(instance) -> int:
+def num_of_bps_maximum_weight(instance) -> int:
     """
     Computes the number of blocking pairs for a (not necessarily stable) matching minimzing the summed rank agents have for their partner.
 

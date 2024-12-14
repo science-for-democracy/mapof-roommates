@@ -1,14 +1,11 @@
-import logging
-import math
-
 import numpy as np
 from prefsampling.core.euclidean import EuclideanSpace
 from prefsampling.core.euclidean import euclidean_space_to_sampler
 
 from mapof.roommates.cultures.mallows import mallows_votes
+from mapof.roommates.cultures.register import register_roommates_culture
 from mapof.roommates.cultures.utils import convert
 
-from mapof.roommates.cultures.register import register_roommates_culture
 
 
 @register_roommates_culture('attributes')
@@ -68,7 +65,7 @@ def generate_euclidean_votes(
         **_kwargs
 ) -> list[list[int]]:
     """
-    Generate votes based on Euclidean model.
+    Generates votes based on Euclidean model.
 
     Parameters
     ----------
