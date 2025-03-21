@@ -1,12 +1,10 @@
-#!/usr/bin/env python
-
 import copy
 
 from mapof.core.objects.Family import Family
-from mapof.roommates.objects.Roommates import Roommates
 from mapof.core.utils import *
 
-import mapof.roommates.cultures.mallows as mallows
+from mapof.roommates.objects.Roommates import Roommates
+from mapof.roommates.cultures.params import get_params_for_paths
 
 
 class RoommatesFamily(Family):
@@ -49,22 +47,28 @@ class RoommatesFamily(Family):
     def prepare_family(self, experiment_id=None, is_exported=None):
 
         instances = {}
-
         _keys = []
         for j in range(self.size):
 
             params = copy.deepcopy(self.params)
 
-            if params is not None and 'normphi' in params:
-                params['phi'] = mallows.phi_from_normphi(self.num_agents,
-                                                         relphi=params['normphi'])
+            path = self.path
+            if path is not None and 'variable' in path:
+                new_params, variable = get_params_for_paths(self.path, self.size, j)
+                params = {**params, **new_params}
+                params['variable'] = variable
 
             instance_id = get_instance_id(self.single, self.family_id, j)
 
-            instance = Roommates(experiment_id, instance_id, is_imported=False,
-                                 culture_id=self.culture_id, num_agents=self.num_agents)
+            instance = Roommates(experiment_id,
+                                 instance_id,
+                                 is_imported=False,
+                                 culture_id=self.culture_id,
+                                 num_agents=self.num_agents,
+                                 params=params
+                                 )
 
-            instance.prepare_instance(is_exported=is_exported, params=params)
+            instance.prepare_instance(is_exported=is_exported)
 
             instances[instance_id] = instance
 

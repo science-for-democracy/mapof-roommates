@@ -15,13 +15,19 @@ class Roommates(Instance):
     def __init__(self,
                  experiment_id,
                  instance_id,
-                 alpha=1,
                  culture_id=None,
                  num_agents=None,
                  is_imported=True,
-                 votes=None):
+                 votes=None,
+                 params=None,
+                 **kwargs):
 
-        super().__init__(experiment_id, instance_id, alpha=alpha, culture_id=culture_id)
+        super().__init__(
+            experiment_id,
+            instance_id,
+            culture_id=culture_id,
+            params=params,
+            **kwargs)
 
         self.num_agents = num_agents
         self.votes = votes
@@ -82,30 +88,22 @@ class Roommates(Instance):
         self.positionwise_vectors = vectors
         return vectors
 
-    def prepare_instance(self, is_exported=None, params: dict = None):
+    def prepare_instance(self, is_exported: bool = False):
 
-        if params is None:
-            params = {}
 
-        if self.culture_id == 'roommates_norm-mallows' and 'norm-phi' not in params:
-            params['norm-phi'] = np.random.rand()
+        if self.culture_id == 'roommates_norm-mallows' and 'norm-phi' not in self.params:
+            self.params['norm-phi'] = np.random.rand()
             # params['alpha'] = params['norm-phi']
 
-        elif self.culture_id == 'roommates_urn' and 'alpha' not in params:
-            params['alpha'] = np.random.rand()
+        elif self.culture_id == 'roommates_urn' and 'alpha' not in self.params:
+            self.params['alpha'] = np.random.rand()
 
-        # elif 'alpha' not in params:
-        #     params['alpha'] = 1
-
-        if 'variable' in params:
-            params['alpha'] = params[params['variable']]
-
-        # self.alpha = params['alpha']
+        if 'variable' in self.params:
+            self.params['alpha'] = self.params[self.params['variable']]
 
         self.votes = generate_votes(culture_id=self.culture_id,
                                     num_agents=self.num_agents,
-                                    params=params)
-        self.params = params
+                                    params=self.params)
 
         if is_exported:
             exports.export_instance_to_a_file(self)
@@ -115,4 +113,3 @@ class Roommates(Instance):
             feature_long_id = feature_id
         feature = get_local_feature(feature_id)
         self.features[feature_long_id] = feature(self, **kwargs)
-
