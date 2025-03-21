@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import copy
+import logging
 
 import numpy as np
 from mapof.core.objects.Instance import Instance
@@ -39,9 +40,8 @@ class Roommates(Instance):
             try:
                 self.votes, self.num_agents, self.params, self.culture_id = \
                     imports.import_real_instance(self)
-                self.alpha = self.params['alpha']
             except Exception:
-                pass
+                logging.warning(f'Could not import instance {self.instance_id}.')
 
     def get_retrospective_vectors(self):
         if self.retrospetive_vectors is not None:

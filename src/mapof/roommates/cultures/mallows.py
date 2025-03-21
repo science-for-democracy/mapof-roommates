@@ -9,10 +9,12 @@ def generate_mallows_votes(*args, **kwargs):
 
 
 @register_roommates_culture('norm_mallows')
-def generate_norm_mallows_votes(num_agents: int = None,
-                                normphi: float = 0.5,
-                                weight: float = 0,
-                                **kwargs):
+def generate_norm_mallows_votes(
+        num_agents: int = None,
+        normphi: float = 0.5,
+        weight: float = 0,
+        **kwargs
+):
     phi = ml.phi_from_normphi(num_agents, normphi=normphi)
 
     votes = generate_mallows_votes(num_agents, num_agents, phi=phi, weight=weight)
@@ -45,9 +47,6 @@ def generate_malasym_votes(
     votes = [list(range(num_agents)) for _ in range(num_agents)]
 
     votes = [rotate(vote, shift) for shift, vote in enumerate(votes)]
-
-    # if 'norm-phi' not in params:
-    #     params['norm-phi'] = np.random.rand()
 
     phi = ml.phi_from_normphi(num_agents, normphi=normphi)
     votes = mallows_votes(votes, phi)
